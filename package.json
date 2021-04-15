@@ -6,6 +6,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --public-url https://chloet127.github.io/react-parcel-starter/ && rm -rf docs && mv dist docs",
+    "predeploy": "rm -rf dist && parcel build index.html",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
