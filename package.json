@@ -6,14 +6,13 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --public-url https://chloet127.github.io/react-parcel-starter/ && rm -rf docs && mv dist docs",
-    "predeploy": "rm -rf dist && parcel build index.html",
-    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "d3-fetch": "^2.0.0",
     "parcel": "^2.0.0-beta.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
