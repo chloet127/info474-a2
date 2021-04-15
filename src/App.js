@@ -1,11 +1,11 @@
 import React from "react";
+import {csv} from "d3-fetch";
 
 const viewHeight = 500;
 const viewWidth = 500;
 
 const App = () => {
-    fetch("https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/spotify_songs.csv")
-    .then(response => response.json())
+    csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
     .then((data) => console.log(data));
     return (
         <div>
