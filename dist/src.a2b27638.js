@@ -29566,7 +29566,627 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"node_modules/d3-fetch/src/blob.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function responseBlob(response) {
+  if (!response.ok) throw new Error(response.status + " " + response.statusText);
+  return response.blob();
+}
+
+function _default(input, init) {
+  return fetch(input, init).then(responseBlob);
+}
+},{}],"node_modules/d3-fetch/src/buffer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function responseArrayBuffer(response) {
+  if (!response.ok) throw new Error(response.status + " " + response.statusText);
+  return response.arrayBuffer();
+}
+
+function _default(input, init) {
+  return fetch(input, init).then(responseArrayBuffer);
+}
+},{}],"node_modules/d3-dsv/src/dsv.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+var EOL = {},
+    EOF = {},
+    QUOTE = 34,
+    NEWLINE = 10,
+    RETURN = 13;
+
+function objectConverter(columns) {
+  return new Function("d", "return {" + columns.map(function (name, i) {
+    return JSON.stringify(name) + ": d[" + i + "] || \"\"";
+  }).join(",") + "}");
+}
+
+function customConverter(columns, f) {
+  var object = objectConverter(columns);
+  return function (row, i) {
+    return f(object(row), i, columns);
+  };
+} // Compute unique columns in order of discovery.
+
+
+function inferColumns(rows) {
+  var columnSet = Object.create(null),
+      columns = [];
+  rows.forEach(function (row) {
+    for (var column in row) {
+      if (!(column in columnSet)) {
+        columns.push(columnSet[column] = column);
+      }
+    }
+  });
+  return columns;
+}
+
+function pad(value, width) {
+  var s = value + "",
+      length = s.length;
+  return length < width ? new Array(width - length + 1).join(0) + s : s;
+}
+
+function formatYear(year) {
+  return year < 0 ? "-" + pad(-year, 6) : year > 9999 ? "+" + pad(year, 6) : pad(year, 4);
+}
+
+function formatDate(date) {
+  var hours = date.getUTCHours(),
+      minutes = date.getUTCMinutes(),
+      seconds = date.getUTCSeconds(),
+      milliseconds = date.getUTCMilliseconds();
+  return isNaN(date) ? "Invalid Date" : formatYear(date.getUTCFullYear(), 4) + "-" + pad(date.getUTCMonth() + 1, 2) + "-" + pad(date.getUTCDate(), 2) + (milliseconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "." + pad(milliseconds, 3) + "Z" : seconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "Z" : minutes || hours ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + "Z" : "");
+}
+
+function _default(delimiter) {
+  var reFormat = new RegExp("[\"" + delimiter + "\n\r]"),
+      DELIMITER = delimiter.charCodeAt(0);
+
+  function parse(text, f) {
+    var convert,
+        columns,
+        rows = parseRows(text, function (row, i) {
+      if (convert) return convert(row, i - 1);
+      columns = row, convert = f ? customConverter(row, f) : objectConverter(row);
+    });
+    rows.columns = columns || [];
+    return rows;
+  }
+
+  function parseRows(text, f) {
+    var rows = [],
+        // output rows
+    N = text.length,
+        I = 0,
+        // current character index
+    n = 0,
+        // current line number
+    t,
+        // current token
+    eof = N <= 0,
+        // current token followed by EOF?
+    eol = false; // current token followed by EOL?
+    // Strip the trailing newline.
+
+    if (text.charCodeAt(N - 1) === NEWLINE) --N;
+    if (text.charCodeAt(N - 1) === RETURN) --N;
+
+    function token() {
+      if (eof) return EOF;
+      if (eol) return eol = false, EOL; // Unescape quotes.
+
+      var i,
+          j = I,
+          c;
+
+      if (text.charCodeAt(j) === QUOTE) {
+        while (I++ < N && text.charCodeAt(I) !== QUOTE || text.charCodeAt(++I) === QUOTE);
+
+        if ((i = I) >= N) eof = true;else if ((c = text.charCodeAt(I++)) === NEWLINE) eol = true;else if (c === RETURN) {
+          eol = true;
+          if (text.charCodeAt(I) === NEWLINE) ++I;
+        }
+        return text.slice(j + 1, i - 1).replace(/""/g, "\"");
+      } // Find next delimiter or newline.
+
+
+      while (I < N) {
+        if ((c = text.charCodeAt(i = I++)) === NEWLINE) eol = true;else if (c === RETURN) {
+          eol = true;
+          if (text.charCodeAt(I) === NEWLINE) ++I;
+        } else if (c !== DELIMITER) continue;
+        return text.slice(j, i);
+      } // Return last token before EOF.
+
+
+      return eof = true, text.slice(j, N);
+    }
+
+    while ((t = token()) !== EOF) {
+      var row = [];
+
+      while (t !== EOL && t !== EOF) row.push(t), t = token();
+
+      if (f && (row = f(row, n++)) == null) continue;
+      rows.push(row);
+    }
+
+    return rows;
+  }
+
+  function preformatBody(rows, columns) {
+    return rows.map(function (row) {
+      return columns.map(function (column) {
+        return formatValue(row[column]);
+      }).join(delimiter);
+    });
+  }
+
+  function format(rows, columns) {
+    if (columns == null) columns = inferColumns(rows);
+    return [columns.map(formatValue).join(delimiter)].concat(preformatBody(rows, columns)).join("\n");
+  }
+
+  function formatBody(rows, columns) {
+    if (columns == null) columns = inferColumns(rows);
+    return preformatBody(rows, columns).join("\n");
+  }
+
+  function formatRows(rows) {
+    return rows.map(formatRow).join("\n");
+  }
+
+  function formatRow(row) {
+    return row.map(formatValue).join(delimiter);
+  }
+
+  function formatValue(value) {
+    return value == null ? "" : value instanceof Date ? formatDate(value) : reFormat.test(value += "") ? "\"" + value.replace(/"/g, "\"\"") + "\"" : value;
+  }
+
+  return {
+    parse: parse,
+    parseRows: parseRows,
+    format: format,
+    formatBody: formatBody,
+    formatRows: formatRows,
+    formatRow: formatRow,
+    formatValue: formatValue
+  };
+}
+},{}],"node_modules/d3-dsv/src/csv.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.csvFormatValue = exports.csvFormatRow = exports.csvFormatRows = exports.csvFormatBody = exports.csvFormat = exports.csvParseRows = exports.csvParse = void 0;
+
+var _dsv = _interopRequireDefault(require("./dsv.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var csv = (0, _dsv.default)(",");
+var csvParse = csv.parse;
+exports.csvParse = csvParse;
+var csvParseRows = csv.parseRows;
+exports.csvParseRows = csvParseRows;
+var csvFormat = csv.format;
+exports.csvFormat = csvFormat;
+var csvFormatBody = csv.formatBody;
+exports.csvFormatBody = csvFormatBody;
+var csvFormatRows = csv.formatRows;
+exports.csvFormatRows = csvFormatRows;
+var csvFormatRow = csv.formatRow;
+exports.csvFormatRow = csvFormatRow;
+var csvFormatValue = csv.formatValue;
+exports.csvFormatValue = csvFormatValue;
+},{"./dsv.js":"node_modules/d3-dsv/src/dsv.js"}],"node_modules/d3-dsv/src/tsv.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.tsvFormatValue = exports.tsvFormatRow = exports.tsvFormatRows = exports.tsvFormatBody = exports.tsvFormat = exports.tsvParseRows = exports.tsvParse = void 0;
+
+var _dsv = _interopRequireDefault(require("./dsv.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tsv = (0, _dsv.default)("\t");
+var tsvParse = tsv.parse;
+exports.tsvParse = tsvParse;
+var tsvParseRows = tsv.parseRows;
+exports.tsvParseRows = tsvParseRows;
+var tsvFormat = tsv.format;
+exports.tsvFormat = tsvFormat;
+var tsvFormatBody = tsv.formatBody;
+exports.tsvFormatBody = tsvFormatBody;
+var tsvFormatRows = tsv.formatRows;
+exports.tsvFormatRows = tsvFormatRows;
+var tsvFormatRow = tsv.formatRow;
+exports.tsvFormatRow = tsvFormatRow;
+var tsvFormatValue = tsv.formatValue;
+exports.tsvFormatValue = tsvFormatValue;
+},{"./dsv.js":"node_modules/d3-dsv/src/dsv.js"}],"node_modules/d3-dsv/src/autoType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = autoType;
+
+function autoType(object) {
+  for (var key in object) {
+    var value = object[key].trim(),
+        number,
+        m;
+    if (!value) value = null;else if (value === "true") value = true;else if (value === "false") value = false;else if (value === "NaN") value = NaN;else if (!isNaN(number = +value)) value = number;else if (m = value.match(/^([-+]\d{2})?\d{4}(-\d{2}(-\d{2})?)?(T\d{2}:\d{2}(:\d{2}(\.\d{3})?)?(Z|[-+]\d{2}:\d{2})?)?$/)) {
+      if (fixtz && !!m[4] && !m[7]) value = value.replace(/-/g, "/").replace(/T/, " ");
+      value = new Date(value);
+    } else continue;
+    object[key] = value;
+  }
+
+  return object;
+} // https://github.com/d3/d3-dsv/issues/45
+
+
+const fixtz = new Date("2019-01-01T00:00").getHours() || new Date("2019-07-01T00:00").getHours();
+},{}],"node_modules/d3-dsv/src/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "dsvFormat", {
+  enumerable: true,
+  get: function () {
+    return _dsv.default;
+  }
+});
+Object.defineProperty(exports, "csvParse", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvParse;
+  }
+});
+Object.defineProperty(exports, "csvParseRows", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvParseRows;
+  }
+});
+Object.defineProperty(exports, "csvFormat", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvFormat;
+  }
+});
+Object.defineProperty(exports, "csvFormatBody", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvFormatBody;
+  }
+});
+Object.defineProperty(exports, "csvFormatRows", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvFormatRows;
+  }
+});
+Object.defineProperty(exports, "csvFormatRow", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvFormatRow;
+  }
+});
+Object.defineProperty(exports, "csvFormatValue", {
+  enumerable: true,
+  get: function () {
+    return _csv.csvFormatValue;
+  }
+});
+Object.defineProperty(exports, "tsvParse", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvParse;
+  }
+});
+Object.defineProperty(exports, "tsvParseRows", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvParseRows;
+  }
+});
+Object.defineProperty(exports, "tsvFormat", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvFormat;
+  }
+});
+Object.defineProperty(exports, "tsvFormatBody", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvFormatBody;
+  }
+});
+Object.defineProperty(exports, "tsvFormatRows", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvFormatRows;
+  }
+});
+Object.defineProperty(exports, "tsvFormatRow", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvFormatRow;
+  }
+});
+Object.defineProperty(exports, "tsvFormatValue", {
+  enumerable: true,
+  get: function () {
+    return _tsv.tsvFormatValue;
+  }
+});
+Object.defineProperty(exports, "autoType", {
+  enumerable: true,
+  get: function () {
+    return _autoType.default;
+  }
+});
+
+var _dsv = _interopRequireDefault(require("./dsv.js"));
+
+var _csv = require("./csv.js");
+
+var _tsv = require("./tsv.js");
+
+var _autoType = _interopRequireDefault(require("./autoType.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./dsv.js":"node_modules/d3-dsv/src/dsv.js","./csv.js":"node_modules/d3-dsv/src/csv.js","./tsv.js":"node_modules/d3-dsv/src/tsv.js","./autoType.js":"node_modules/d3-dsv/src/autoType.js"}],"node_modules/d3-fetch/src/text.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function responseText(response) {
+  if (!response.ok) throw new Error(response.status + " " + response.statusText);
+  return response.text();
+}
+
+function _default(input, init) {
+  return fetch(input, init).then(responseText);
+}
+},{}],"node_modules/d3-fetch/src/dsv.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = dsv;
+exports.tsv = exports.csv = void 0;
+
+var _d3Dsv = require("d3-dsv");
+
+var _text = _interopRequireDefault(require("./text.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function dsvParse(parse) {
+  return function (input, init, row) {
+    if (arguments.length === 2 && typeof init === "function") row = init, init = undefined;
+    return (0, _text.default)(input, init).then(function (response) {
+      return parse(response, row);
+    });
+  };
+}
+
+function dsv(delimiter, input, init, row) {
+  if (arguments.length === 3 && typeof init === "function") row = init, init = undefined;
+  var format = (0, _d3Dsv.dsvFormat)(delimiter);
+  return (0, _text.default)(input, init).then(function (response) {
+    return format.parse(response, row);
+  });
+}
+
+var csv = dsvParse(_d3Dsv.csvParse);
+exports.csv = csv;
+var tsv = dsvParse(_d3Dsv.tsvParse);
+exports.tsv = tsv;
+},{"d3-dsv":"node_modules/d3-dsv/src/index.js","./text.js":"node_modules/d3-fetch/src/text.js"}],"node_modules/d3-fetch/src/image.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function _default(input, init) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+
+    for (var key in init) image[key] = init[key];
+
+    image.onerror = reject;
+
+    image.onload = function () {
+      resolve(image);
+    };
+
+    image.src = input;
+  });
+}
+},{}],"node_modules/d3-fetch/src/json.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function responseJson(response) {
+  if (!response.ok) throw new Error(response.status + " " + response.statusText);
+  if (response.status === 204 || response.status === 205) return;
+  return response.json();
+}
+
+function _default(input, init) {
+  return fetch(input, init).then(responseJson);
+}
+},{}],"node_modules/d3-fetch/src/xml.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.svg = exports.html = exports.default = void 0;
+
+var _text = _interopRequireDefault(require("./text.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function parser(type) {
+  return (input, init) => (0, _text.default)(input, init).then(text => new DOMParser().parseFromString(text, type));
+}
+
+var _default = parser("application/xml");
+
+exports.default = _default;
+var html = parser("text/html");
+exports.html = html;
+var svg = parser("image/svg+xml");
+exports.svg = svg;
+},{"./text.js":"node_modules/d3-fetch/src/text.js"}],"node_modules/d3-fetch/src/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "blob", {
+  enumerable: true,
+  get: function () {
+    return _blob.default;
+  }
+});
+Object.defineProperty(exports, "buffer", {
+  enumerable: true,
+  get: function () {
+    return _buffer.default;
+  }
+});
+Object.defineProperty(exports, "dsv", {
+  enumerable: true,
+  get: function () {
+    return _dsv.default;
+  }
+});
+Object.defineProperty(exports, "csv", {
+  enumerable: true,
+  get: function () {
+    return _dsv.csv;
+  }
+});
+Object.defineProperty(exports, "tsv", {
+  enumerable: true,
+  get: function () {
+    return _dsv.tsv;
+  }
+});
+Object.defineProperty(exports, "image", {
+  enumerable: true,
+  get: function () {
+    return _image.default;
+  }
+});
+Object.defineProperty(exports, "json", {
+  enumerable: true,
+  get: function () {
+    return _json.default;
+  }
+});
+Object.defineProperty(exports, "text", {
+  enumerable: true,
+  get: function () {
+    return _text.default;
+  }
+});
+Object.defineProperty(exports, "xml", {
+  enumerable: true,
+  get: function () {
+    return _xml.default;
+  }
+});
+Object.defineProperty(exports, "html", {
+  enumerable: true,
+  get: function () {
+    return _xml.html;
+  }
+});
+Object.defineProperty(exports, "svg", {
+  enumerable: true,
+  get: function () {
+    return _xml.svg;
+  }
+});
+
+var _blob = _interopRequireDefault(require("./blob.js"));
+
+var _buffer = _interopRequireDefault(require("./buffer.js"));
+
+var _dsv = _interopRequireWildcard(require("./dsv.js"));
+
+var _image = _interopRequireDefault(require("./image.js"));
+
+var _json = _interopRequireDefault(require("./json.js"));
+
+var _text = _interopRequireDefault(require("./text.js"));
+
+var _xml = _interopRequireWildcard(require("./xml.js"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./blob.js":"node_modules/d3-fetch/src/blob.js","./buffer.js":"node_modules/d3-fetch/src/buffer.js","./dsv.js":"node_modules/d3-fetch/src/dsv.js","./image.js":"node_modules/d3-fetch/src/image.js","./json.js":"node_modules/d3-fetch/src/json.js","./text.js":"node_modules/d3-fetch/src/text.js","./xml.js":"node_modules/d3-fetch/src/xml.js"}],"public/imgs/1.png":[function(require,module,exports) {
+module.exports = "/1.f562ce6b.png";
+},{}],"public/imgs/2.png":[function(require,module,exports) {
+module.exports = "/2.305aee3f.png";
+},{}],"public/imgs/3.png":[function(require,module,exports) {
+module.exports = "/3.248957af.png";
+},{}],"public/imgs/4.png":[function(require,module,exports) {
+module.exports = "/4.8862cf75.png";
+},{}],"public/imgs/5.png":[function(require,module,exports) {
+module.exports = "/5.b2570f44.png";
+},{}],"public/imgs/6.png":[function(require,module,exports) {
+module.exports = "/6.8b7e8822.png";
+},{}],"public/imgs/7.png":[function(require,module,exports) {
+module.exports = "/7.18572c28.png";
+},{}],"public/imgs/8.png":[function(require,module,exports) {
+module.exports = "/8.04d16efd.png";
+},{}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29576,70 +30196,39 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _d3Fetch = require("d3-fetch");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var viewHeight = 500;
 var viewWidth = 500;
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
-    style: {
-      border: "1px solid pink",
-      width: viewWidth,
-      height: viewHeight
-    }
-  }, /*#__PURE__*/_react.default.createElement("circle", {
-    cx: 20,
-    cy: 20,
-    r: "5"
-  }), /*#__PURE__*/_react.default.createElement("rect", {
-    x: "200",
-    y: "200",
-    width: "10",
-    height: "10",
-    fill: "rgb(230, 230, 230)"
-  }), /*#__PURE__*/_react.default.createElement("rect", {
-    x: "212",
-    y: "200",
-    width: "10",
-    height: "10",
-    fill: "rgb(230, 230, 230)"
-  }), /*#__PURE__*/_react.default.createElement("rect", {
-    x: "224",
-    y: "200",
-    width: "10",
-    height: "10",
-    fill: "rgb(230, 230, 230)"
-  }), /*#__PURE__*/_react.default.createElement("rect", {
-    x: "236",
-    y: "200",
-    width: "10",
-    height: "10",
-    fill: "rgb(230, 230, 230)"
-  }), /*#__PURE__*/_react.default.createElement("rect", {
-    x: "248",
-    y: "200",
-    width: "10",
-    height: "10"
-  }), /*#__PURE__*/_react.default.createElement("line", {
-    x1: "0",
-    y1: viewHeight,
-    x2: "100",
-    y2: "200",
-    stroke: "black"
-  }), /*#__PURE__*/_react.default.createElement("text", {
-    x: "20",
-    y: "35",
-    class: "small",
-    style: {
-      font: "italic 13px sans-serif"
-    }
-  }, "Price history of 100 randomly selected Pokemon cards")));
+  (0, _d3Fetch.csv)("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv").then(function (data) {
+    return console.log(data);
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Exploratory Data Analysis"), /*#__PURE__*/_react.default.createElement("p", null, "Assignment 2, INFO 474 Sp 2021"), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/1.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/2.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/3.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/4.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/5.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/6.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/7.png")
+  }), /*#__PURE__*/_react.default.createElement("img", {
+    src: require("../public/imgs/8.png")
+  }));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","d3-fetch":"node_modules/d3-fetch/src/index.js","../public/imgs/1.png":"public/imgs/1.png","../public/imgs/2.png":"public/imgs/2.png","../public/imgs/3.png":"public/imgs/3.png","../public/imgs/4.png":"public/imgs/4.png","../public/imgs/5.png":"public/imgs/5.png","../public/imgs/6.png":"public/imgs/6.png","../public/imgs/7.png":"public/imgs/7.png","../public/imgs/8.png":"public/imgs/8.png"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29651,7 +30240,7 @@ var _App = _interopRequireDefault(require("./App"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.querySelector("#root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./App":"src/App.js"}],"C:/Users/chloe/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./App":"src/App.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29679,7 +30268,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51313" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52451" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -29855,5 +30444,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/chloe/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.js.map
