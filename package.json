@@ -2,6 +2,8 @@
   "name": "4-6-wk2-a",
   "version": "1.0.0",
   "description": "",
+  "type" : "module",
+
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel index.html",
