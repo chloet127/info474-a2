@@ -1054,7 +1054,7 @@ try {
   var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
   var _App = require("./App");
   var _AppDefault = _parcelHelpers.interopDefault(_App);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\index.js";
+  var _jsxFileName = "C:\\Users\\chloe\\Desktop\\react-parcel-starter\\src\\index.js";
   _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_AppDefault.default, {
     __self: undefined,
     __source: {
@@ -26273,7 +26273,7 @@ try {
   var _react = require("react");
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _d3Fetch = require("d3-fetch");
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\App.js";
+  var _jsxFileName = "C:\\Users\\chloe\\Desktop\\react-parcel-starter\\src\\App.js";
   const viewHeight = 500;
   const viewWidth = 500;
   const App = () => {

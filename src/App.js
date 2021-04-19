@@ -12,14 +12,7 @@ const App = () => {
             <h1>Exploratory Data Analysis</h1>
             <p>Assignment 2, INFO 474 Sp 2021</p>
 
-            <img src={require("../public/imgs/1.png")} />
-            <img src={require("../public/imgs/2.png")} />
-            <img src={require("../public/imgs/3.png")} />
-            <img src={require("../public/imgs/4.png")} />
-            <img src={require("../public/imgs/5.png")} />
-            <img src={require("../public/imgs/6.png")} />
-            <img src={require("../public/imgs/7.png")} />
-            <img src={require("../public/imgs/8.png")} />
+            
         </div>
     );
 }
