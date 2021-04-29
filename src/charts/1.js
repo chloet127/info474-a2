@@ -1,5 +1,6 @@
 import React from 'react';
 import { Vega } from 'react-vega';
+import data1 from '../data/spotify_songs.json';
 
 // chart config
 const jobpalBlue = '#e0e0e0';
@@ -63,7 +64,7 @@ const getSpec = (yAxisValues = [], rangeLen = 0) => ({
           field: 'symbol',
           type: 'ordinal',
           scale: {
-            domain: ['danceability', 'track_popularity'],
+            domain: ['danceability', 'energy'],
             range: [jobpalLightGrey, jobpalBlue],
           },
         },
@@ -72,7 +73,7 @@ const getSpec = (yAxisValues = [], rangeLen = 0) => ({
       mark: areaMark,
       encoding: {
         x: getDateXObj(rangeLen),
-        y: getQuantitativeYObj('track_popularity', '', yAxisValues),
+        y: getQuantitativeYObj('energy', '', yAxisValues),
       },
     },
   ],
@@ -82,21 +83,12 @@ const getSpec = (yAxisValues = [], rangeLen = 0) => ({
 })
 
 
-const data = [
-  {
-    "track_popularity": 66,
-    "track_album_release_date": "6/14/2019",
-    "danceability": 0.748
-  },
-  {
-    "track_popularity": 67,
-    "track_album_release_date": "12/13/2019",
-    "danceability": 0.726
-  }
-]
+
+
+const data = data1.slice(0, 10)
 
 // React component
-const Bar1 = () => {
+const Chart1 = () => {
   // get max value from data arary
   const yAxisMaxValueFor = (...keys) => {
     const maxList = keys.map(key => data.reduce(
@@ -108,9 +100,8 @@ const Bar1 = () => {
   };
 
   const yAxisValues = Array.from(
-    { length: yAxisMaxValueFor('track_popularity', 'danceability') },
+    { length: yAxisMaxValueFor('energy', 'danceability') },
   ).map((v, i) => (i + 1));
-
 
   const spec = getSpec(yAxisValues, data.length);
 
@@ -131,4 +122,4 @@ const Bar1 = () => {
   );
 }
 
-export default Bar1;
+export default Chart1;

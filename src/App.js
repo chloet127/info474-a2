@@ -2,9 +2,10 @@ import React, { useMemo, useRef, useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
 import { scaleLinear } from "d3-scale";
 import { extent, max, min, bin } from "d3-array";
-import { scale } from "vega";
 import * as d3 from 'd3';
-import Bar1 from './charts/1';
+import Chart1 from './charts/1';
+import Chart2 from './charts/2';
+import Chart3 from './charts/3';
 
 
 const App = () => {
@@ -50,11 +51,13 @@ const App = () => {
         <div className='App'>
 
             <h1>Exploratory Data Analysis</h1>
-            <p>Assignment 2, INFO 474 Sp 2021</p>
+            <p>Assignment 2, INFO 474 Spring 2021</p>
 
             <p>{loading && "loading data!"}</p>
 
-            <Bar1 />
+            <Chart1 />
+            <Chart2 />
+            <Chart3 />
 
             <svg>
                 <path
