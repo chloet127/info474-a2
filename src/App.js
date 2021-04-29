@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useMemo, useRef, useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
 import { scaleLinear } from "d3-scale";
-import { extent, min, max } from "d3-array";
+import { extent, max, min, bin } from "d3-array";
+import { scale } from "vega";
+import * as d3 from 'd3';
+import Bar1 from './charts/1';
 
 
 const App = () => {
@@ -11,36 +14,89 @@ const App = () => {
     
     const data_sm = data.slice(0, 100);
 
-    
-
-    const pop_max = max(data_sm.map((d) => {
-        return d.track_popularity;
-    }));
-
-    const pop_min = min(data_sm.map((d) => {
-        return d.track_popularity;
-    }));
-
-    console.log(pop_max, pop_min);
-
     const size = 500;
     const margin = 20;
     const axisTextAlignmentFactor = 3;
     const yScale = scaleLinear()
         .domain(
-            extent(data.slice(0, 100), (d) => {
+            extent(data_sm, (d) => {
                 return d.track_popularity;
             })
         )
         .range([size, size - 250]);
 
+    _bins = bin().thresholds(30);
+    tmaxBins = _bins(
+        data.map((d) => {
+        return +d.track_popularity;
+        })
+    );
+    
+    const histogramLeftPadding = 20;
+
+    const ticks = useMemo(() => {
+        const xScale = d3.scaleLinear()
+          .domain([0, 100])
+          .range([10, 290])
+        return xScale.ticks()
+          .map(value => ({
+            value,
+            xOffset: xScale(value)
+          }))
+    }, [])   
+
     
     return (
-        <div>
+        <div className='App'>
+
             <h1>Exploratory Data Analysis</h1>
             <p>Assignment 2, INFO 474 Sp 2021</p>
 
             <p>{loading && "loading data!"}</p>
+
+            <Bar1 />
+
+            <svg>
+                <path
+                    d="M 9.5 0.5 H 290.5"
+                    stroke="currentColor"
+                />
+                {ticks.map(({ value, xOffset }) => (
+                    <g
+                    key={value}
+                    transform={`translate(${xOffset}, 0)`}
+                    >
+                    <line
+                        y2="6"
+                        stroke="currentColor"
+                    />
+                    <text
+                        key={value}
+                        style={{
+                        fontSize: "10px",
+                        textAnchor: "middle",
+                        transform: "translateY(20px)"
+                        }}>
+                        { value }
+                    </text>
+                    </g>
+                ))}
+            </svg>
+
+            <h3> Binning </h3>
+            <svg width={size} height={size} style={{ border: "1px solid black" }}>
+                {tmaxBins.map((bin, i) => {
+                return (
+                    <rect
+                        x={histogramLeftPadding + i * 11}    
+                        y={size - 50 - bin.length}
+                        width="10"
+                        height={bin.length}
+                        
+                    />
+                );
+                })}
+            </svg>
 
             <h3>Barcode plot</h3>
             <svg 
