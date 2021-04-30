@@ -6,7 +6,7 @@
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url https://chloet127.github.io/react-parcel-starter/ && rm -rf docs && mv dist docs",
+    "build": "parcel build index.html --public-url https://chloet127.github.io/info474-a2/ && rm -rf docs && mv dist docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
