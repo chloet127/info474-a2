@@ -11,13 +11,13 @@ class Chart6 extends Component {
 
   drawChart(data) {
     const spec = data;
-    vegaEmbed("#vis", spec)
+    vegaEmbed("#vis6", spec)
       // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
   }
 
-  render() { return <div id='vis'></div>}
+  render() { return <div id='vis6'></div>}
 }
 
 export default Chart6;

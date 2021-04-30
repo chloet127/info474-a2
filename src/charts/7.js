@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import vegaEmbed from 'vega-embed';
-import data from '../data/5.json';
+import data from '../data/7.json';
 
-
-class Chart5 extends Component {
+class Chart7 extends Component {
 
   componentDidMount() {
     this.drawChart(data)
@@ -11,13 +10,13 @@ class Chart5 extends Component {
 
   drawChart(data) {
     const spec = data;
-    vegaEmbed("#vis5", spec)
+    vegaEmbed("#vis7", spec)
       // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
   }
 
-  render() { return <div id='vis5'></div>}
+  render() { return <div id='vis7'></div>}
 }
 
-export default Chart5;
+export default Chart7;

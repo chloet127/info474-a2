@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "description": "A simple line chart with embedded data.",
+    "description": "A simple bar chart with embedded data.",
     "width": 800,
     "data": {"url":"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv"},
     "mark": "line",
@@ -9,8 +9,5 @@
       "y": {"field": "track_popularity", "type": "quantitative"},
       "tooltip": {"field": "track_popularity", "type": "quantitative"},
       "color": {"field": "playlist_genre", "type": "nominal"}
-    },
-    "transform": [
-      {"filter": {"field": "year", "gte": 2010}}
-    ]
+    }
   }

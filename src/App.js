@@ -9,6 +9,7 @@ import Chart3 from './charts/3';
 import Chart4 from './charts/4';
 import Chart5 from './charts/5';
 import Chart6 from './charts/6';
+import Chart7 from './charts/7';
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
 
             <p>{loading && "loading data!"}</p>
 
+            <Chart7 />
             <Chart6 />
             <Chart5 />
             <Chart4 />
