@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-class Chart3 extends Component {
+class Chart4 extends Component {
               
     componentDidMount() {           
-        const data = [1065, 1206, 1296, 1298, 1511, 1408, 1456, 1485, 1322, 1256, 1672, 1655, 1262, 1637, 1133, 1105, 1517, 1129, 1809, 948, 1674, 1291, 1288, 1405]
+        const data = [1206,1511,1517,1809,1655,1262,948,1288,1298,1408,1672,1129,1256,1637,1133,1405,1456,1322,1674,1291,1065,1296,1485,1105]
         this.drawBarChart(data)
     }
 
@@ -41,32 +41,12 @@ class Chart3 extends Component {
             .attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10)
             .text(dataPoint => dataPoint)
 
-        var keys = [
-            'album rock',                   
-            'big room',                      
-            'classic rock',                  
-            'dance pop',                     
-            'electro house',                 
-            'electropop',                    
-            'gangster rap',                  
-            'hard rock',                     
-            'hip hop',                       
-            'hip pop',                       
-            'indie poptimism',               
-            'latin hip hop',                
-            'latin pop', 
-            'neo soul',                      
-            'new jack swing',                
-            'permanent wave',                
-            'pop edm',                       
-            'post-teen pop',                 
-            'progressive electro house',     
-            'reggaeton',                     
-            'southern hip hop',              
-            'trap',                          
-            'tropical',                      
-            'urban contemporary'
-        ] 
+        var keys = ['big room','electro house','pop edm','progressive electro house',
+            'latin hip hop','latin pop','reggaeton','tropical',
+            'dance pop','electropop','indie poptimism','post-teen pop',
+            'hip pop','neo soul','new jack swing','urban contemporary',
+            'gangster rap','hip hop','southern hip hop','trap',
+            'album rock','classic rock','hard rock','permanent wave'] 
 
         svgCanvas.selectAll("mydots")
         .data(keys)
@@ -98,4 +78,4 @@ class Chart3 extends Component {
     }
     render() { return <div ref="canvas"></div> }
 }
-export default Chart3
+export default Chart4

@@ -6,6 +6,9 @@ import * as d3 from 'd3';
 import Chart1 from './charts/1';
 import Chart2 from './charts/2';
 import Chart3 from './charts/3';
+import Chart4 from './charts/4';
+import Chart5 from './charts/5';
+import Chart6 from './charts/6';
 
 
 const App = () => {
@@ -55,9 +58,12 @@ const App = () => {
 
             <p>{loading && "loading data!"}</p>
 
-            <Chart1 />
-            <Chart2 />
+            <Chart6 />
+            <Chart5 />
+            <Chart4 />
             <Chart3 />
+            <Chart2 />
+            <Chart1 />
 
             <svg>
                 <path
