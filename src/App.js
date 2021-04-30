@@ -1,15 +1,19 @@
-import React, { useMemo, useRef, useEffect } from "react";
+import React, { useMemo } from "react";
 import { useFetch } from "./hooks/useFetch";
 import { scaleLinear } from "d3-scale";
-import { extent, max, min, bin } from "d3-array";
+import { extent, bin } from "d3-array";
 import * as d3 from 'd3';
+
 import Chart1 from './charts/1';
 import Chart2 from './charts/2';
 import Chart3 from './charts/3';
 import Chart4 from './charts/4';
-import Chart5 from './charts/5';
-import Chart6 from './charts/6';
-import Chart7 from './charts/7';
+import LineChart from './charts/lineChart';
+
+import data5 from './data/5.json';
+import data6 from './data/6.json';
+import data7 from './data/7.json';
+import data8 from './data/8.json';
 
 
 const App = () => {
@@ -17,7 +21,7 @@ const App = () => {
         "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv"
     );
     
-    const data_sm = data.slice(0, 100);
+    /* const data_sm = data.slice(0, 100);
 
     const size = 500;
     const margin = 20;
@@ -48,7 +52,7 @@ const App = () => {
             value,
             xOffset: xScale(value)
           }))
-    }, [])   
+    }, []) */   
 
     
     return (
@@ -59,15 +63,18 @@ const App = () => {
 
             <p>{loading && "loading data!"}</p>
 
-            <Chart7 />
-            <Chart6 />
-            <Chart5 />
+            <LineChart data={data6} id={'vis6'}/>
+            <LineChart data={data5} id={'vis5'}/>
+            <LineChart data={data7} id={'vis7'}/>
+            <LineChart data={data8} id={'vis8'}/>
+            
+
             <Chart4 />
             <Chart3 />
             <Chart2 />
             <Chart1 />
 
-            <svg>
+            {/* <svg>
                 <path
                     d="M 9.5 0.5 H 290.5"
                     stroke="currentColor"
@@ -183,7 +190,7 @@ const App = () => {
                                 opacity={0.2}
                             />;
                 })}
-            </svg>
+            </svg> */}
 
         </div>
     );

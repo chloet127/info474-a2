@@ -26273,339 +26273,161 @@ try {
   var _react = require("react");
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _hooksUseFetch = require("./hooks/useFetch");
-  var _d3Scale = require("d3-scale");
-  var _d3Array = require("d3-array");
-  var _d = require('d3');
-  var _charts7 = require('./charts/1');
-  var _charts7Default = _parcelHelpers.interopDefault(_charts7);
-  var _charts6 = require('./charts/2');
-  var _charts6Default = _parcelHelpers.interopDefault(_charts6);
-  var _charts5 = require('./charts/3');
-  var _charts5Default = _parcelHelpers.interopDefault(_charts5);
-  var _charts4 = require('./charts/4');
+  require("d3-scale");
+  require("d3-array");
+  require('d3');
+  var _charts4 = require('./charts/1');
   var _charts4Default = _parcelHelpers.interopDefault(_charts4);
-  var _charts3 = require('./charts/5');
+  var _charts3 = require('./charts/2');
   var _charts3Default = _parcelHelpers.interopDefault(_charts3);
-  var _charts2 = require('./charts/6');
+  var _charts2 = require('./charts/3');
   var _charts2Default = _parcelHelpers.interopDefault(_charts2);
-  var _charts = require('./charts/7');
+  var _charts = require('./charts/4');
   var _chartsDefault = _parcelHelpers.interopDefault(_charts);
+  var _chartsLineChart = require('./charts/lineChart');
+  var _chartsLineChartDefault = _parcelHelpers.interopDefault(_chartsLineChart);
+  var _data5Json = require('./data/5.json');
+  var _data5JsonDefault = _parcelHelpers.interopDefault(_data5Json);
+  var _data6Json = require('./data/6.json');
+  var _data6JsonDefault = _parcelHelpers.interopDefault(_data6Json);
+  var _data7Json = require('./data/7.json');
+  var _data7JsonDefault = _parcelHelpers.interopDefault(_data7Json);
+  var _data8Json = require('./data/8.json');
+  var _data8JsonDefault = _parcelHelpers.interopDefault(_data8Json);
   var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\App.js", _s = $RefreshSig$();
   const App = () => {
     _s();
     const [data, loading] = _hooksUseFetch.useFetch("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv");
-    const data_sm = data.slice(0, 100);
+    /*const data_sm = data.slice(0, 100);
+    
     const size = 500;
     const margin = 20;
     const axisTextAlignmentFactor = 3;
-    const yScale = _d3Scale.scaleLinear().domain(_d3Array.extent(data_sm, d => {
-      return d.track_popularity;
-    })).range([size, size - 250]);
-    _bins = _d3Array.bin().thresholds(30);
-    tmaxBins = _bins(data.map(d => {
-      return +d.track_popularity;
-    }));
+    const yScale = scaleLinear()
+    .domain(
+    extent(data_sm, (d) => {
+    return d.track_popularity;
+    })
+    )
+    .range([size, size - 250]);
+    
+    _bins = bin().thresholds(30);
+    tmaxBins = _bins(
+    data.map((d) => {
+    return +d.track_popularity;
+    })
+    );
+    
     const histogramLeftPadding = 20;
-    const ticks = _react.useMemo(() => {
-      const xScale = _d.scaleLinear().domain([0, 100]).range([10, 290]);
-      return xScale.ticks().map(value => ({
-        value,
-        xOffset: xScale(value)
-      }));
-    }, []);
+    
+    const ticks = useMemo(() => {
+    const xScale = d3.scaleLinear()
+    .domain([0, 100])
+    .range([10, 290])
+    return xScale.ticks()
+    .map(value => ({
+    value,
+    xOffset: xScale(value)
+    }))
+    }, [])*/
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
         className: "App",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55,
+          lineNumber: 59,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57,
+          lineNumber: 61,
           columnNumber: 13
         }
       }, "Exploratory Data Analysis"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58,
+          lineNumber: 62,
           columnNumber: 13
         }
       }, "Assignment 2, INFO 474 Spring 2021"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60,
-          columnNumber: 13
-        }
-      }, loading && "loading data!"), /*#__PURE__*/_reactDefault.default.createElement(_chartsDefault.default, {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 62,
-          columnNumber: 13
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts2Default.default, {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 63,
-          columnNumber: 13
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts3Default.default, {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 64,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts4Default.default, {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 65,
-          columnNumber: 13
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts5Default.default, {
+      }, loading && "loading data!"), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+        data: _data6JsonDefault.default,
+        id: 'vis6',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 66,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts6Default.default, {
+      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+        data: _data5JsonDefault.default,
+        id: 'vis5',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 67,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts7Default.default, {
+      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+        data: _data7JsonDefault.default,
+        id: 'vis7',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 68,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement("svg", {
+      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+        data: _data8JsonDefault.default,
+        id: 'vis8',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70,
+          lineNumber: 69,
           columnNumber: 13
         }
-      }, /*#__PURE__*/_reactDefault.default.createElement("path", {
-        d: "M 9.5 0.5 H 290.5",
-        stroke: "currentColor",
+      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsDefault.default, {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
-          columnNumber: 17
-        }
-      }), ticks.map(({value, xOffset}) => /*#__PURE__*/_reactDefault.default.createElement("g", {
-        key: value,
-        transform: `translate(${xOffset}, 0)`,
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 76,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("line", {
-        y2: "6",
-        stroke: "currentColor",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 80,
-          columnNumber: 21
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement("text", {
-        key: value,
-        style: {
-          fontSize: "10px",
-          textAnchor: "middle",
-          transform: "translateY(20px)"
-        },
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 84,
-          columnNumber: 21
-        }
-      }, value)))), /*#__PURE__*/_reactDefault.default.createElement("h3", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 97,
+          lineNumber: 72,
           columnNumber: 13
         }
-      }, " Binning "), /*#__PURE__*/_reactDefault.default.createElement("svg", {
-        width: size,
-        height: size,
-        style: {
-          border: "1px solid black"
-        },
+      }), /*#__PURE__*/_reactDefault.default.createElement(_charts2Default.default, {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98,
+          lineNumber: 73,
           columnNumber: 13
         }
-      }, tmaxBins.map((bin, i) => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("rect", {
-            x: histogramLeftPadding + i * 11,
-            y: size - 50 - bin.length,
-            width: "10",
-            height: bin.length,
-            __self: undefined,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 101,
-              columnNumber: 21
-            }
-          })
-        );
-      })), /*#__PURE__*/_reactDefault.default.createElement("h3", {
+      }), /*#__PURE__*/_reactDefault.default.createElement(_charts3Default.default, {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112,
+          lineNumber: 74,
           columnNumber: 13
         }
-      }, "Barcode plot"), /*#__PURE__*/_reactDefault.default.createElement("svg", {
-        width: size,
-        height: size,
-        style: {
-          border: "1px solid black"
-        },
+      }), /*#__PURE__*/_reactDefault.default.createElement(_charts4Default.default, {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113,
+          lineNumber: 75,
           columnNumber: 13
         }
-      }, /*#__PURE__*/_reactDefault.default.createElement("text", {
-        x: size / 2 - 20,
-        y: size - margin + axisTextAlignmentFactor,
-        style: {
-          fontSize: 10,
-          fontFamily: "Gill Sans, sans serif"
-        },
-        textAnchor: "end",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 118,
-          columnNumber: 17
-        }
-      }, "0"), /*#__PURE__*/_reactDefault.default.createElement("text", {
-        x: size / 2 - 20,
-        y: yScale(90),
-        style: {
-          fontSize: 10,
-          fontFamily: "Gill Sans, sans serif"
-        },
-        textAnchor: "end",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 126,
-          columnNumber: 17
-        }
-      }, "100"), /*#__PURE__*/_reactDefault.default.createElement("line", {
-        x1: size / 2 - 10,
-        y1: yScale(90),
-        x2: size / 2 - 5,
-        y2: yScale(90),
-        stroke: "black",
-        strokeOpacity: "0.8",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 134,
-          columnNumber: 17
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement("line", {
-        x1: size / 2 - 10,
-        y1: size - margin + axisTextAlignmentFactor,
-        x2: size / 2 - 5,
-        y2: size - margin + axisTextAlignmentFactor,
-        stroke: "black",
-        strokeOpacity: "0.8",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 142,
-          columnNumber: 17
-        }
-      }), data.slice(0, 100).map((d, index) => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("line", {
-            key: index,
-            x1: size / 2,
-            y1: yScale(d.track_popularity),
-            x2: size / 2 + 20,
-            y2: yScale(d.track_popularity),
-            stroke: d.track_popularity > "50" ? "green" : "black",
-            strokeOpacity: "0.8",
-            __self: undefined,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 151,
-              columnNumber: 28
-            }
-          })
-        );
-      })), /*#__PURE__*/_reactDefault.default.createElement("h3", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 166,
-          columnNumber: 13
-        }
-      }, "Scatterplot"), /*#__PURE__*/_reactDefault.default.createElement("svg", {
-        width: size,
-        height: size,
-        style: {
-          border: "1px solid black"
-        },
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 167,
-          columnNumber: 13
-        }
-      }, data.slice(0, 100).map((d, index) => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("circle", {
-            key: index,
-            cx: size / 2,
-            cy: size - margin - d.track_popularity,
-            r: 3,
-            fill: "none",
-            stroke: d.playlist_genre === "pop" ? "green" : "black",
-            strokeOpacity: "0.8",
-            opacity: 0.2,
-            __self: undefined,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 173,
-              columnNumber: 28
-            }
-          })
-        );
-      })))
+      }))
     );
   };
-  _s(App, "CfbYBcCuTIPQQHk82H/lav/dz+g=", false, function () {
+  _s(App, "Jm65JCcgUFoenM4DufkEA80vRVI=", false, function () {
     return [_hooksUseFetch.useFetch];
   });
   _c = App;
@@ -26618,7 +26440,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./hooks/useFetch":"5YU3r","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl","./charts/1":"3yGtZ","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./charts/5":"1IjKG","./charts/6":"3Vqhf","./charts/7":"WFTPm"}],"5gA8y":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./hooks/useFetch":"5YU3r","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl","./charts/1":"3yGtZ","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./data/6.json":"6AHmw","./charts/lineChart":"4h1Dl","./data/7.json":"fsj0x","./data/5.json":"4eP7w","./data/8.json":"io6JI"}],"5gA8y":[function(require,module,exports) {
 "use strict";
 
 exports.interopDefault = function (a) {
@@ -101507,7 +101329,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"1IjKG":[function(require,module,exports) {
+},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4h1Dl":[function(require,module,exports) {
 var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -101519,134 +101341,44 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _vegaEmbed = require('vega-embed');
   var _vegaEmbedDefault = _parcelHelpers.interopDefault(_vegaEmbed);
-  var _data5Json = require('../data/5.json');
-  var _data5JsonDefault = _parcelHelpers.interopDefault(_data5Json);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\5.js";
-  class Chart5 extends _react.Component {
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\lineChart.js";
+  class LineChart extends _react.Component {
     componentDidMount() {
-      this.drawChart(_data5JsonDefault.default);
+      this.drawChart(this.props.data, this.props.id);
     }
-    drawChart(data) {
+    drawChart(data, id) {
       const spec = data;
-      _vegaEmbedDefault.default("#vis5", spec).// result.view provides access to the Vega View API
-      then(result => console.log(result)).catch(console.warn);
+      _vegaEmbedDefault.default('#' + id, spec).then(result => console.log(result)).catch(console.warn);
     }
     render() {
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: "vis5",
+          id: this.props.id,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20,
+            lineNumber: 18,
             columnNumber: 21
           }
         })
       );
     }
   }
-  exports.default = Chart5;
+  exports.default = LineChart;
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","vega-embed":"4V7Ot","../data/5.json":"4eP7w"}],"4eP7w":[function(require,module,exports) {
+},{"react":"3b2NM","vega-embed":"4V7Ot","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"fsj0x":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple bar chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/info474-a2/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
+
+},{}],"4eP7w":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
 
-},{}],"3Vqhf":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _vegaEmbed = require('vega-embed');
-  var _vegaEmbedDefault = _parcelHelpers.interopDefault(_vegaEmbed);
-  var _data6Json = require('../data/6.json');
-  var _data6JsonDefault = _parcelHelpers.interopDefault(_data6Json);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\6.js";
-  class Chart6 extends _react.Component {
-    componentDidMount() {
-      this.drawChart(_data6JsonDefault.default);
-    }
-    drawChart(data) {
-      const spec = data;
-      _vegaEmbedDefault.default("#vis6", spec).// result.view provides access to the Vega View API
-      then(result => console.log(result)).catch(console.warn);
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: "vis6",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20,
-            columnNumber: 21
-          }
-        })
-      );
-    }
-  }
-  exports.default = Chart6;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","vega-embed":"4V7Ot","../data/6.json":"6AHmw","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"WFTPm":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _vegaEmbed = require('vega-embed');
-  var _vegaEmbedDefault = _parcelHelpers.interopDefault(_vegaEmbed);
-  var _data7Json = require('../data/7.json');
-  var _data7JsonDefault = _parcelHelpers.interopDefault(_data7Json);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\7.js";
-  class Chart7 extends _react.Component {
-    componentDidMount() {
-      this.drawChart(_data7JsonDefault.default);
-    }
-    drawChart(data) {
-      const spec = data;
-      _vegaEmbedDefault.default("#vis7", spec).// result.view provides access to the Vega View API
-      then(result => console.log(result)).catch(console.warn);
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: "vis7",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 19,
-            columnNumber: 21
-          }
-        })
-      );
-    }
-  }
-  exports.default = Chart7;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","vega-embed":"4V7Ot","../data/7.json":"fsj0x","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"fsj0x":[function(require,module,exports) {
-module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple bar chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
+},{}],"io6JI":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
 
 },{}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire8a86")
 
