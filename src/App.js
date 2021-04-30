@@ -143,9 +143,7 @@ const App = () => {
                         view of the more recent popularity trends for each genre. Here, we can see that all of 
                         the genres but rock are beginning to trend higher.
                     </p>
-                </div>
-                
-                
+                </div>     
             </div>
             
     
