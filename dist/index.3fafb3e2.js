@@ -1054,7 +1054,7 @@ try {
   var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
   var _App = require("./App");
   var _AppDefault = _parcelHelpers.interopDefault(_App);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\index.js";
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\index.js";
   _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_AppDefault.default, {
     __self: undefined,
     __source: {
@@ -26276,16 +26276,17 @@ try {
   require("d3-scale");
   require("d3-array");
   require('d3');
-  var _charts4 = require('./charts/1');
-  var _charts4Default = _parcelHelpers.interopDefault(_charts4);
-  var _charts3 = require('./charts/2');
-  var _charts3Default = _parcelHelpers.interopDefault(_charts3);
+  require('./style/style.css');
+  var _charts = require('./charts/2');
+  var _chartsDefault = _parcelHelpers.interopDefault(_charts);
   var _charts2 = require('./charts/3');
   var _charts2Default = _parcelHelpers.interopDefault(_charts2);
-  var _charts = require('./charts/4');
-  var _chartsDefault = _parcelHelpers.interopDefault(_charts);
-  var _chartsLineChart = require('./charts/lineChart');
-  var _chartsLineChartDefault = _parcelHelpers.interopDefault(_chartsLineChart);
+  var _charts3 = require('./charts/4');
+  var _charts3Default = _parcelHelpers.interopDefault(_charts3);
+  var _chartsVegaChart = require('./charts/vegaChart');
+  var _chartsVegaChartDefault = _parcelHelpers.interopDefault(_chartsVegaChart);
+  var _data1Json = require('./data/1.json');
+  var _data1JsonDefault = _parcelHelpers.interopDefault(_data1Json);
   var _data5Json = require('./data/5.json');
   var _data5JsonDefault = _parcelHelpers.interopDefault(_data5Json);
   var _data6Json = require('./data/6.json');
@@ -26294,7 +26295,7 @@ try {
   var _data7JsonDefault = _parcelHelpers.interopDefault(_data7Json);
   var _data8Json = require('./data/8.json');
   var _data8JsonDefault = _parcelHelpers.interopDefault(_data8Json);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\App.js", _s = $RefreshSig$();
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\App.js", _s = $RefreshSig$();
   const App = () => {
     _s();
     const [data, loading] = _hooksUseFetch.useFetch("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv");
@@ -26336,95 +26337,289 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59,
+          lineNumber: 60,
           columnNumber: 9
         }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 61,
-          columnNumber: 13
-        }
-      }, "Exploratory Data Analysis"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "container",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 62,
           columnNumber: 13
         }
-      }, "Assignment 2, INFO 474 Spring 2021"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 64,
-          columnNumber: 13
+          columnNumber: 21
         }
-      }, loading && "loading data!"), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
-        data: _data6JsonDefault.default,
-        id: 'vis6',
+      }, "Exploratory Data Analysis"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
-          columnNumber: 13
+          lineNumber: 65,
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
-        data: _data5JsonDefault.default,
-        id: 'vis5',
+      }, "Assignment 2, INFO 474 Spring 2021"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 67,
-          columnNumber: 13
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+      }, loading && "loading data!")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 70,
+          columnNumber: 21
+        }
+      }, "Number of Songs per Genre Over Time (1957-2020)"), /*#__PURE__*/_reactDefault.default.createElement(_chartsVegaChartDefault.default, {
         data: _data7JsonDefault.default,
         id: 'vis7',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68,
-          columnNumber: 13
+          lineNumber: 71,
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsLineChartDefault.default, {
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 72,
+          columnNumber: 21
+        }
+      }, "The spotify_songs dataset spans across many decades, starting in 1957 and ending in 2020. The first few decades, until around 2000, are relatively uneventful for most of the genres, with the exception of rock. Around 2010, more and more songs were released, with EDM spiking the highest. It’s important to note that the steep drop at 2020 is due to the fact that very little information for that year was available at the time of this dataset’s release.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81,
+          columnNumber: 21
+        }
+      }, "Number of Songs per Genre Over Time (2010-2020)"), /*#__PURE__*/_reactDefault.default.createElement(_chartsVegaChartDefault.default, {
         data: _data8JsonDefault.default,
         id: 'vis8',
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69,
-          columnNumber: 13
+          lineNumber: 82,
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_chartsDefault.default, {
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
-          columnNumber: 13
+          lineNumber: 83,
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts2Default.default, {
+      }, "Because so much of the growth of music occurred in the most recent decade, it warranted a closer look. Here, it’s clear to see that EDM, latin, and rap music lead in terms of growth, with hundreds of song releases over the lowest genre, rock, in 2019.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73,
-          columnNumber: 13
+          lineNumber: 89,
+          columnNumber: 17
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts3Default.default, {
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74,
-          columnNumber: 13
+          lineNumber: 90,
+          columnNumber: 21
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_charts4Default.default, {
+      }, "Number of Songs per Genre"), /*#__PURE__*/_reactDefault.default.createElement(_chartsDefault.default, {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75,
-          columnNumber: 13
+          lineNumber: 91,
+          columnNumber: 21
         }
-      }))
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 21
+        }
+      }, "EDM is the leader in number of songs released, with rap coming in second. It’s interesting to note that although latin had the second highest peak in 2019, it has one of the lowest song counts, which means that it hasn’t been as consistent across the years as pop or r&b music.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 99,
+          columnNumber: 21
+        }
+      }, "Number of Songs per Subgenre"), /*#__PURE__*/_reactDefault.default.createElement(_charts2Default.default, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 101,
+          columnNumber: 21
+        }
+      }, "Splitting up by subgenre can give us deeper insight into each genre; however, the way that the data is currently encoded makes it difficult to understand how the data is categorized.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107,
+          columnNumber: 21
+        }
+      }, "Number of Songs per Subgenre"), /*#__PURE__*/_reactDefault.default.createElement(_charts3Default.default, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 109,
+          columnNumber: 21
+        }
+      }, "By categorizing each subgenre by color, it’s easier to see the distinction between each separate subgenre and how they contribute to the total number of songs released in the genre as a whole. For example, because the latin genre has a relatively low total song count, it can be surprising to see latin hip hop with one of the highest number of songs released among the other subgenres, though this can be explained by the low song count of reggaeton.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118,
+          columnNumber: 21
+        }
+      }, "Track Popularity Distribution per Genre"), /*#__PURE__*/_reactDefault.default.createElement(_chartsVegaChartDefault.default, {
+        data: _data1JsonDefault.default,
+        id: 'vis1',
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120,
+          columnNumber: 21
+        }
+      }, "This is a more indepth look into the different genres and how they differ in regards to the distribution of track popularity. By following the median, min, and max for each genre, we can analyze trends and compare and contrast the genres together.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128,
+          columnNumber: 21
+        }
+      }, "Track Popularity per Genre Over Time (1957-2020)"), /*#__PURE__*/_reactDefault.default.createElement(_chartsVegaChartDefault.default, {
+        data: _data6JsonDefault.default,
+        id: 'vis6',
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 130,
+          columnNumber: 21
+        }
+      }, "Throughout this visualization, the popularity for many of the genres spikes and dips quite violently, especially before the year 2000. It’s also interesting to note that some of the genres start later than 1957, which means that some of the popularity data is missing from the dataset.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 137,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 138,
+          columnNumber: 21
+        }
+      }, "Track Popularity per Genre Over Time (2010-2020)"), /*#__PURE__*/_reactDefault.default.createElement(_chartsVegaChartDefault.default, {
+        data: _data5JsonDefault.default,
+        id: 'vis5',
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140,
+          columnNumber: 21
+        }
+      }, "Because some of the data is incomplete, and because the wider view of this visualization is very chaotic, narrowing down the timeframe to focus on the 2010’s will give us a better view of the more recent popularity trends for each genre. Here, we can see that all of the genres but rock are beginning to trend higher."))))
     );
   };
   _s(App, "Jm65JCcgUFoenM4DufkEA80vRVI=", false, function () {
@@ -26440,206 +26635,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./hooks/useFetch":"5YU3r","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl","./charts/1":"3yGtZ","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./data/6.json":"6AHmw","./charts/lineChart":"4h1Dl","./data/7.json":"fsj0x","./data/5.json":"4eP7w","./data/8.json":"io6JI"}],"5gA8y":[function(require,module,exports) {
-"use strict";
-
-exports.interopDefault = function (a) {
-  return a && a.__esModule ? a : {
-    default: a
-  };
-};
-
-exports.defineInteropFlag = function (a) {
-  Object.defineProperty(a, '__esModule', {
-    value: true
-  });
-};
-
-exports.exportAll = function (source, dest) {
-  Object.keys(source).forEach(function (key) {
-    if (key === 'default' || key === '__esModule') {
-      return;
-    } // Skip duplicate re-exports when they have the same value.
-
-
-    if (key in dest && dest[key] === source[key]) {
-      return;
-    }
-
-    Object.defineProperty(dest, key, {
-      enumerable: true,
-      get: function () {
-        return source[key];
-      }
-    });
-  });
-  return dest;
-};
-
-exports.export = function (dest, destName, get) {
-  Object.defineProperty(dest, destName, {
-    enumerable: true,
-    get: get
-  });
-};
-},{}],"4Jj4f":[function(require,module,exports) {
-"use strict";
-var Refresh = require('react-refresh/runtime');
-function debounce(func, delay) {
-  if ("development" === 'test') {
-    return function (args) {
-      func.call(null, args);
-    };
-  } else {
-    var timeout = undefined;
-    return function (args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(function () {
-        timeout = undefined;
-        func.call(null, args);
-      }, delay);
-    };
-  }
-}
-var enqueueUpdate = debounce(function () {
-  Refresh.performReactRefresh();
-}, 30);
-// Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function (module) {
-  window.$RefreshReg$ = function (type, id) {
-    Refresh.register(type, module.id + ' ' + id);
-  };
-  window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function (module) {
-  if (isReactRefreshBoundary(module.exports)) {
-    registerExportsForReactRefresh(module);
-    if (module.hot) {
-      module.hot.dispose(function (data) {
-        if (Refresh.hasUnrecoverableErrors()) {
-          window.location.reload();
-        }
-        data.prevExports = module.exports;
-      });
-      module.hot.accept(function (getParents) {
-        var prevExports = module.hot.data.prevExports;
-        var nextExports = module.exports;
-        // Since we just executed the code for it, it's possible
-        // that the new exports make it ineligible for being a boundary.
-        var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
-        // It can also become ineligible if its exports are incompatible
-        // with the previous exports.
-        // For example, if you add/remove/change exports, we'll want
-        // to re-execute the importing modules, and force those components
-        // to re-render. Similarly, if you convert a class component
-        // to a function, we want to invalidate the boundary.
-        var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-        if (isNoLongerABoundary || didInvalidate) {
-          // We'll be conservative. The only case in which we won't do a full
-          // reload is if all parent modules are also refresh boundaries.
-          // In that case we'll add them to the current queue.
-          var parents = getParents();
-          if (parents.length === 0) {
-            // Looks like we bubbled to the root. Can't recover from that.
-            window.location.reload();
-            return;
-          }
-          return parents;
-        }
-        enqueueUpdate();
-      });
-    }
-  }
-};
-function isReactRefreshBoundary(exports) {
-  if (Refresh.isLikelyComponentType(exports)) {
-    return true;
-  }
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    return false;
-  }
-  var hasExports = false;
-  var areAllExportsComponents = true;
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    hasExports = true;
-    if (key === '__esModule') {
-      continue;
-    }
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      return false;
-    }
-    var exportValue = exports[key];
-    if (!Refresh.isLikelyComponentType(exportValue)) {
-      areAllExportsComponents = false;
-    }
-  }
-  return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-  var prevSignature = getRefreshBoundarySignature(prevExports);
-  var nextSignature = getRefreshBoundarySignature(nextExports);
-  if (prevSignature.length !== nextSignature.length) {
-    return true;
-  }
-  for (var i = 0; i < nextSignature.length; i++) {
-    if (prevSignature[i] !== nextSignature[i]) {
-      return true;
-    }
-  }
-  return false;
-}
-// When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-  var signature = [];
-  signature.push(Refresh.getFamilyByType(exports));
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-  }
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    if (key === '__esModule') {
-      continue;
-    }
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      continue;
-    }
-    var exportValue = exports[key];
-    signature.push(key);
-    signature.push(Refresh.getFamilyByType(exportValue));
-  }
-  return signature;
-}
-function registerExportsForReactRefresh(module) {
-  var exports = module.exports, id = module.id;
-  Refresh.register(exports, id + ' %exports%');
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-  }
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      continue;
-    }
-    var exportValue = exports[key];
-    Refresh.register(exportValue, id + ' %exports% ' + key);
-  }
-}
-
-},{"react-refresh/runtime":"592mh"}],"5YU3r":[function(require,module,exports) {
+},{"react":"3b2NM","./hooks/useFetch":"5YU3r","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./data/5.json":"4eP7w","./data/6.json":"6AHmw","./data/7.json":"fsj0x","./data/8.json":"io6JI","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./style/style.css":"1uIeg","./data/1.json":"1sg6m","./charts/vegaChart":"4EvrK"}],"5YU3r":[function(require,module,exports) {
 var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26939,7 +26935,206 @@ var define;
   });
 });
 
-},{}],"2UZ4X":[function(require,module,exports) {
+},{}],"5gA8y":[function(require,module,exports) {
+"use strict";
+
+exports.interopDefault = function (a) {
+  return a && a.__esModule ? a : {
+    default: a
+  };
+};
+
+exports.defineInteropFlag = function (a) {
+  Object.defineProperty(a, '__esModule', {
+    value: true
+  });
+};
+
+exports.exportAll = function (source, dest) {
+  Object.keys(source).forEach(function (key) {
+    if (key === 'default' || key === '__esModule') {
+      return;
+    } // Skip duplicate re-exports when they have the same value.
+
+
+    if (key in dest && dest[key] === source[key]) {
+      return;
+    }
+
+    Object.defineProperty(dest, key, {
+      enumerable: true,
+      get: function () {
+        return source[key];
+      }
+    });
+  });
+  return dest;
+};
+
+exports.export = function (dest, destName, get) {
+  Object.defineProperty(dest, destName, {
+    enumerable: true,
+    get: get
+  });
+};
+},{}],"4Jj4f":[function(require,module,exports) {
+"use strict";
+var Refresh = require('react-refresh/runtime');
+function debounce(func, delay) {
+  if ("development" === 'test') {
+    return function (args) {
+      func.call(null, args);
+    };
+  } else {
+    var timeout = undefined;
+    return function (args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        timeout = undefined;
+        func.call(null, args);
+      }, delay);
+    };
+  }
+}
+var enqueueUpdate = debounce(function () {
+  Refresh.performReactRefresh();
+}, 30);
+// Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function (module) {
+  window.$RefreshReg$ = function (type, id) {
+    Refresh.register(type, module.id + ' ' + id);
+  };
+  window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function (module) {
+  if (isReactRefreshBoundary(module.exports)) {
+    registerExportsForReactRefresh(module);
+    if (module.hot) {
+      module.hot.dispose(function (data) {
+        if (Refresh.hasUnrecoverableErrors()) {
+          window.location.reload();
+        }
+        data.prevExports = module.exports;
+      });
+      module.hot.accept(function (getParents) {
+        var prevExports = module.hot.data.prevExports;
+        var nextExports = module.exports;
+        // Since we just executed the code for it, it's possible
+        // that the new exports make it ineligible for being a boundary.
+        var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+        // It can also become ineligible if its exports are incompatible
+        // with the previous exports.
+        // For example, if you add/remove/change exports, we'll want
+        // to re-execute the importing modules, and force those components
+        // to re-render. Similarly, if you convert a class component
+        // to a function, we want to invalidate the boundary.
+        var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+        if (isNoLongerABoundary || didInvalidate) {
+          // We'll be conservative. The only case in which we won't do a full
+          // reload is if all parent modules are also refresh boundaries.
+          // In that case we'll add them to the current queue.
+          var parents = getParents();
+          if (parents.length === 0) {
+            // Looks like we bubbled to the root. Can't recover from that.
+            window.location.reload();
+            return;
+          }
+          return parents;
+        }
+        enqueueUpdate();
+      });
+    }
+  }
+};
+function isReactRefreshBoundary(exports) {
+  if (Refresh.isLikelyComponentType(exports)) {
+    return true;
+  }
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    return false;
+  }
+  var hasExports = false;
+  var areAllExportsComponents = true;
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    hasExports = true;
+    if (key === '__esModule') {
+      continue;
+    }
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      return false;
+    }
+    var exportValue = exports[key];
+    if (!Refresh.isLikelyComponentType(exportValue)) {
+      areAllExportsComponents = false;
+    }
+  }
+  return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+  var prevSignature = getRefreshBoundarySignature(prevExports);
+  var nextSignature = getRefreshBoundarySignature(nextExports);
+  if (prevSignature.length !== nextSignature.length) {
+    return true;
+  }
+  for (var i = 0; i < nextSignature.length; i++) {
+    if (prevSignature[i] !== nextSignature[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+  var signature = [];
+  signature.push(Refresh.getFamilyByType(exports));
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+  }
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    if (key === '__esModule') {
+      continue;
+    }
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      continue;
+    }
+    var exportValue = exports[key];
+    signature.push(key);
+    signature.push(Refresh.getFamilyByType(exportValue));
+  }
+  return signature;
+}
+function registerExportsForReactRefresh(module) {
+  var exports = module.exports, id = module.id;
+  Refresh.register(exports, id + ' %exports%');
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+  }
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      continue;
+    }
+    var exportValue = exports[key];
+    Refresh.register(exportValue, id + ' %exports% ' + key);
+  }
+}
+
+},{"react-refresh/runtime":"592mh"}],"2UZ4X":[function(require,module,exports) {
 var define;
 // https://d3js.org/d3-scale/ v3.3.0 Copyright 2021 Mike Bostock
 (function (global, factory) {
@@ -42621,7 +42816,211 @@ var define;
   });
 });
 
-},{"d3-dispatch":"6ygE0","d3-drag":"5x5QZ","d3-interpolate":"6eByj","d3-selection":"1RFAz","d3-transition":"ee4oY"}],"3yGtZ":[function(require,module,exports) {
+},{"d3-dispatch":"6ygE0","d3-drag":"5x5QZ","d3-interpolate":"6eByj","d3-selection":"1RFAz","d3-transition":"ee4oY"}],"29g08":[function(require,module,exports) {
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _d = require('d3');
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\charts\\2.js";
+  class Chart2 extends _react.Component {
+    componentDidMount() {
+      const data = [6043, 5153, 5507, 5431, 5743, 4951];
+      this.drawBarChart(data);
+    }
+    drawBarChart(data) {
+      const canvasHeight = 400;
+      const canvasWidth = 600;
+      const scale = 20;
+      const color = _d.scaleOrdinal([`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`]);
+      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
+      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 40).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
+        return color(i);
+      }).attr("x", (datapoint, iteration) => iteration * 45).attr("y", datapoint => canvasHeight - datapoint / scale);
+      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 45 + 10).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
+      var keys = ['edm', 'latin', 'pop', 'r&b', 'rap', 'rock'];
+      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 90).attr("cy", function (d, i) {
+        return 100 + i * 25;
+      }).attr("r", 7).style("fill", function (d) {
+        return color(d);
+      });
+      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 70).attr("y", function (d, i) {
+        return 100 + i * 25;
+      }).style("fill", function (d) {
+        return color(d);
+      }).text(function (d) {
+        return d;
+      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
+      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Genre");
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          ref: "canvas",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69,
+            columnNumber: 23
+          }
+        })
+      );
+    }
+  }
+  exports.default = Chart2;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3pDMm":[function(require,module,exports) {
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _d = require('d3');
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\charts\\3.js";
+  class Chart3 extends _react.Component {
+    componentDidMount() {
+      const data = [1065, 1206, 1296, 1298, 1511, 1408, 1456, 1485, 1322, 1256, 1672, 1655, 1262, 1637, 1133, 1105, 1517, 1129, 1809, 948, 1674, 1291, 1288, 1405];
+      this.drawBarChart(data);
+    }
+    drawBarChart(data) {
+      const canvasHeight = 400;
+      const canvasWidth = 1050;
+      const scale = 20;
+      const color = _d.scaleOrdinal([`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`]);
+      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
+      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 30).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
+        return color(i);
+      }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
+      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
+      var keys = ['album rock', 'big room', 'classic rock', 'dance pop', 'electro house', 'electropop', 'gangster rap', 'hard rock', 'hip hop', 'hip pop', 'indie poptimism', 'latin hip hop', 'latin pop', 'neo soul', 'new jack swing', 'permanent wave', 'pop edm', 'post-teen pop', 'progressive electro house', 'reggaeton', 'southern hip hop', 'trap', 'tropical', 'urban contemporary'];
+      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
+        return 30 + i * 15;
+      }).attr("r", 7).style("fill", function (d) {
+        return color(d);
+      });
+      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
+        return 30 + i * 15;
+      }).style("fill", function (d) {
+        return color(d);
+      }).text(function (d) {
+        return d;
+      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
+      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Subgenre");
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          ref: "canvas",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 94,
+            columnNumber: 23
+          }
+        })
+      );
+    }
+  }
+  exports.default = Chart3;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"29zjb":[function(require,module,exports) {
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _d = require('d3');
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\charts\\4.js";
+  class Chart4 extends _react.Component {
+    componentDidMount() {
+      const data = [1206, 1511, 1517, 1809, 1655, 1262, 948, 1288, 1298, 1408, 1672, 1129, 1256, 1637, 1133, 1405, 1456, 1322, 1674, 1291, 1065, 1296, 1485, 1105];
+      this.drawBarChart(data);
+    }
+    drawBarChart(data) {
+      const canvasHeight = 400;
+      const canvasWidth = 1050;
+      const scale = 20;
+      const color = _d.scaleOrdinal([`#383867`, `#383867`, `#383867`, `#383867`, `#584c77`, `#584c77`, `#584c77`, `#584c77`, `#33431e`, `#33431e`, `#33431e`, `#33431e`, `#a36629`, `#a36629`, `#a36629`, `#a36629`, `#92462f`, `#92462f`, `#92462f`, `#92462f`, `#b63e36`, `#b63e36`, `#b63e36`, `#b63e36`]);
+      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
+      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 30).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
+        return color(i);
+      }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
+      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
+      var keys = ['big room', 'electro house', 'pop edm', 'progressive electro house', 'latin hip hop', 'latin pop', 'reggaeton', 'tropical', 'dance pop', 'electropop', 'indie poptimism', 'post-teen pop', 'hip pop', 'neo soul', 'new jack swing', 'urban contemporary', 'gangster rap', 'hip hop', 'southern hip hop', 'trap', 'album rock', 'classic rock', 'hard rock', 'permanent wave'];
+      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
+        return 30 + i * 15;
+      }).attr("r", 7).style("fill", function (d) {
+        return color(d);
+      });
+      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
+        return 30 + i * 15;
+      }).style("fill", function (d) {
+        return color(d);
+      }).text(function (d) {
+        return d;
+      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
+      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Subgenre");
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          ref: "canvas",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 79,
+            columnNumber: 23
+          }
+        })
+      );
+    }
+  }
+  exports.default = Chart4;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4eP7w":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
+
+},{}],"6AHmw":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
+
+},{}],"fsj0x":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple bar chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/info474-a2/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
+
+},{}],"io6JI":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
+
+},{}],"1uIeg":[function() {},{}],"1sg6m":[function(require,module,exports) {
+module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v5.json\",\"description\":\"A vertical box plot showing median, min, and max body mass of penguins.\",\"data\":{\"url\":\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv\"},\"mark\":{\"type\":\"boxplot\",\"extent\":\"min-max\"},\"encoding\":{\"x\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\",\"legend\":null},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\",\"scale\":{\"zero\":false}}}}");
+
+},{}],"4EvrK":[function(require,module,exports) {
 var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42633,40 +43032,37 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _vegaEmbed = require('vega-embed');
   var _vegaEmbedDefault = _parcelHelpers.interopDefault(_vegaEmbed);
-  var _data6Json = require('../data/6.json');
-  var _data6JsonDefault = _parcelHelpers.interopDefault(_data6Json);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\1.js";
-  class Chart1 extends _react.Component {
+  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\info474-a2\\src\\charts\\vegaChart.js";
+  class VegaChart extends _react.Component {
     componentDidMount() {
-      this.drawChart(_data6JsonDefault.default);
+      this.drawChart(this.props.data, this.props.id);
     }
-    drawChart(data) {
+    drawChart(data, id) {
       const spec = data;
-      _vegaEmbedDefault.default("#vis1", spec).// result.view provides access to the Vega View API
-      then(result => console.log(result)).catch(console.warn);
+      _vegaEmbedDefault.default('#' + id, spec).then(result => console.log(result)).catch(console.warn);
     }
     render() {
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: "vis1",
+          id: this.props.id,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19,
+            lineNumber: 18,
             columnNumber: 21
           }
         })
       );
     }
   }
-  exports.default = Chart1;
+  exports.default = VegaChart;
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","vega-embed":"4V7Ot","../data/6.json":"6AHmw"}],"4V7Ot":[function(require,module,exports) {
+},{"react":"3b2NM","vega-embed":"4V7Ot","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4V7Ot":[function(require,module,exports) {
 var define;
 var process = require("process");
 (function (global, factory) {
@@ -101137,249 +101533,6 @@ var Buffer = require("buffer").Buffer;
   });
 });
 
-},{"buffer":"3susO","vega-util":"4BD5d","vega":"4modi"}],"6AHmw":[function(require,module,exports) {
-module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
-
-},{}],"29g08":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _d = require('d3');
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\2.js";
-  class Chart2 extends _react.Component {
-    componentDidMount() {
-      const data = [6043, 5153, 5507, 5431, 5743, 4951];
-      this.drawBarChart(data);
-    }
-    drawBarChart(data) {
-      const canvasHeight = 400;
-      const canvasWidth = 600;
-      const scale = 20;
-      const color = _d.scaleOrdinal([`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`]);
-      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
-      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 40).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
-        return color(i);
-      }).attr("x", (datapoint, iteration) => iteration * 45).attr("y", datapoint => canvasHeight - datapoint / scale);
-      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 45 + 10).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
-      var keys = ['edm', 'latin', 'pop', 'r&b', 'rap', 'rock'];
-      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 90).attr("cy", function (d, i) {
-        return 100 + i * 25;
-      }).attr("r", 7).style("fill", function (d) {
-        return color(d);
-      });
-      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 70).attr("y", function (d, i) {
-        return 100 + i * 25;
-      }).style("fill", function (d) {
-        return color(d);
-      }).text(function (d) {
-        return d;
-      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
-      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Genre");
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          ref: "canvas",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 69,
-            columnNumber: 23
-          }
-        })
-      );
-    }
-  }
-  exports.default = Chart2;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3pDMm":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _d = require('d3');
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\3.js";
-  class Chart3 extends _react.Component {
-    componentDidMount() {
-      const data = [1065, 1206, 1296, 1298, 1511, 1408, 1456, 1485, 1322, 1256, 1672, 1655, 1262, 1637, 1133, 1105, 1517, 1129, 1809, 948, 1674, 1291, 1288, 1405];
-      this.drawBarChart(data);
-    }
-    drawBarChart(data) {
-      const canvasHeight = 400;
-      const canvasWidth = 1050;
-      const scale = 20;
-      const color = _d.scaleOrdinal([`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`]);
-      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
-      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 30).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
-        return color(i);
-      }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
-      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
-      var keys = ['album rock', 'big room', 'classic rock', 'dance pop', 'electro house', 'electropop', 'gangster rap', 'hard rock', 'hip hop', 'hip pop', 'indie poptimism', 'latin hip hop', 'latin pop', 'neo soul', 'new jack swing', 'permanent wave', 'pop edm', 'post-teen pop', 'progressive electro house', 'reggaeton', 'southern hip hop', 'trap', 'tropical', 'urban contemporary'];
-      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
-        return 30 + i * 15;
-      }).attr("r", 7).style("fill", function (d) {
-        return color(d);
-      });
-      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
-        return 30 + i * 15;
-      }).style("fill", function (d) {
-        return color(d);
-      }).text(function (d) {
-        return d;
-      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
-      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Subgenre");
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          ref: "canvas",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 94,
-            columnNumber: 23
-          }
-        })
-      );
-    }
-  }
-  exports.default = Chart3;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"29zjb":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _d = require('d3');
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\4.js";
-  class Chart4 extends _react.Component {
-    componentDidMount() {
-      const data = [1206, 1511, 1517, 1809, 1655, 1262, 948, 1288, 1298, 1408, 1672, 1129, 1256, 1637, 1133, 1405, 1456, 1322, 1674, 1291, 1065, 1296, 1485, 1105];
-      this.drawBarChart(data);
-    }
-    drawBarChart(data) {
-      const canvasHeight = 400;
-      const canvasWidth = 1050;
-      const scale = 20;
-      const color = _d.scaleOrdinal([`#383867`, `#383867`, `#383867`, `#383867`, `#584c77`, `#584c77`, `#584c77`, `#584c77`, `#33431e`, `#33431e`, `#33431e`, `#33431e`, `#a36629`, `#a36629`, `#a36629`, `#a36629`, `#92462f`, `#92462f`, `#92462f`, `#92462f`, `#b63e36`, `#b63e36`, `#b63e36`, `#b63e36`]);
-      const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
-      svgCanvas.selectAll("rect").data(data).enter().append("rect").attr("width", 30).attr("height", datapoint => datapoint * scale).attr("fill", function (d, i) {
-        return color(i);
-      }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
-      svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
-      var keys = ['big room', 'electro house', 'pop edm', 'progressive electro house', 'latin hip hop', 'latin pop', 'reggaeton', 'tropical', 'dance pop', 'electropop', 'indie poptimism', 'post-teen pop', 'hip pop', 'neo soul', 'new jack swing', 'urban contemporary', 'gangster rap', 'hip hop', 'southern hip hop', 'trap', 'album rock', 'classic rock', 'hard rock', 'permanent wave'];
-      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
-        return 30 + i * 15;
-      }).attr("r", 7).style("fill", function (d) {
-        return color(d);
-      });
-      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
-        return 30 + i * 15;
-      }).style("fill", function (d) {
-        return color(d);
-      }).text(function (d) {
-        return d;
-      }).attr("text-anchor", "left").style("alignment-baseline", "middle");
-      svgCanvas.append("text").attr("x", canvasWidth / 2).attr("y", 50).attr("text-anchor", "middle").style("font-size", "16px").style("text-decoration", "underline").text("Number of Songs per Subgenre");
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          ref: "canvas",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 79,
-            columnNumber: 23
-          }
-        })
-      );
-    }
-  }
-  exports.default = Chart4;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4h1Dl":[function(require,module,exports) {
-var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _vegaEmbed = require('vega-embed');
-  var _vegaEmbedDefault = _parcelHelpers.interopDefault(_vegaEmbed);
-  var _jsxFileName = "F:\\Users\\Chloe\\Desktop\\info474\\react-parcel-starter\\src\\charts\\lineChart.js";
-  class LineChart extends _react.Component {
-    componentDidMount() {
-      this.drawChart(this.props.data, this.props.id);
-    }
-    drawChart(data, id) {
-      const spec = data;
-      _vegaEmbedDefault.default('#' + id, spec).then(result => console.log(result)).catch(console.warn);
-    }
-    render() {
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: this.props.id,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 18,
-            columnNumber: 21
-          }
-        })
-      );
-    }
-  }
-  exports.default = LineChart;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","vega-embed":"4V7Ot","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"fsj0x":[function(require,module,exports) {
-module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple bar chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/info474-a2/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
-
-},{}],"4eP7w":[function(require,module,exports) {
-module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
-
-},{}],"io6JI":[function(require,module,exports) {
-module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
-
-},{}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire8a86")
+},{"buffer":"3susO","vega-util":"4BD5d","vega":"4modi"}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire8a86")
 
 //# sourceMappingURL=index.3fafb3e2.js.map

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A vertical box plot showing median, min, and max body mass of penguins.",
+    "data": {"url": "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv"},
+    "mark": {
+      "type": "boxplot",
+      "extent": "min-max"
+    },
+    "encoding": {
+      "x": {"field": "playlist_genre", "type": "nominal"},
+      "color": {"field": "playlist_genre", "type": "nominal", "legend": null},
+      "y": {
+        "field": "track_popularity",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      }
+    }
+  }
+  
