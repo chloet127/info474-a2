@@ -1,11 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "description": "A simple bar chart with embedded data.",
-    "width": 360,
-    "data": {"url":"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv"},
+    "width": 800,
+    "data": {"url":"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv"},
     "mark": "line",
     "encoding": {
-      "x": {"field": "track_album_release_date", "type": "ordinal"},
+      "x": {"field": "year", "type": "ordinal"},
       "y": {"field": "track_popularity", "type": "quantitative"},
       "tooltip": {"field": "track_popularity", "type": "quantitative"},
       "color": {"field": "playlist_genre", "type": "nominal"}
