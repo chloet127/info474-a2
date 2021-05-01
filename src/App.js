@@ -141,7 +141,41 @@ const App = () => {
                         Because some of the data is incomplete, and because the wider view of this visualization 
                         is very chaotic, narrowing down the timeframe to focus on the 2010’s will give us a better 
                         view of the more recent popularity trends for each genre. Here, we can see that all of 
-                        the genres but rock are beginning to trend higher.
+                        the genres but rock are beginning to trend higher around 2019.
+                    </p>
+                </div>
+                <div className='flex-child'>
+                    <h3>Written Analysis</h3>
+                    <p>
+                        While performing exploratory data analysis, I wanted to find answers for the following questions:
+                        <ul>
+                            <li>When were songs released per genre?</li>
+                            <li>How many songs have been released per genre?</li>
+                            <li>How is a genre described by each of the popularity of its songs?</li>
+                            <li>How has popularity changed over time for each genre?</li> 
+                        </ul>
+                        <p>
+                            First, I performed initial sanity checks to identify important variables, investigate patterns, 
+                            summarize characteristics, and more. In order to accurately answer the questions above, I had to 
+                            ensure that the data was complete and contained all of the necessary variables. These initial 
+                            checks included creating a list of all column names, checking for null values, and looking at the 
+                            overall shape of the data. Once I had finished these checks, I then moved onto preparing and transforming 
+                            the data for visualization.
+                        </p>
+                        <p>
+                            For my visualizations, I primarily used groupby functions in order to organize my data. This way, 
+                            it was easier to categorize the data by genre, subgenre, or year, then delve further to investigate trends 
+                            and patterns. Because the dataset contained thousands of rows and many columns, I also utilized filtering 
+                            and aggregate functions to reduce the number of data points on display, thereby giving my visualizations 
+                            more clarity.
+                        </p>
+                        <p>
+                            Overall, I was able to gain valuable insight into this dataset after going through this analysis process. 
+                            Much of the increase in volume of music each year has occurred in the last decade, particularly in the last 
+                            few years. All genres displayed in the dataset have seen an increase in the number of songs released as time 
+                            has moved forward. It seems that recent years have seen a tremendous boom in the music industry as more and 
+                            more songs are being released.
+                        </p>
                     </p>
                 </div>     
             </div>

@@ -26619,7 +26619,85 @@ try {
           lineNumber: 140,
           columnNumber: 21
         }
-      }, "Because some of the data is incomplete, and because the wider view of this visualization is very chaotic, narrowing down the timeframe to focus on the 2010’s will give us a better view of the more recent popularity trends for each genre. Here, we can see that all of the genres but rock are beginning to trend higher."))))
+      }, "Because some of the data is incomplete, and because the wider view of this visualization is very chaotic, narrowing down the timeframe to focus on the 2010’s will give us a better view of the more recent popularity trends for each genre. Here, we can see that all of the genres but rock are beginning to trend higher around 2019.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flex-child",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 147,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 148,
+          columnNumber: 21
+        }
+      }, "Written Analysis"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 149,
+          columnNumber: 21
+        }
+      }, "While performing exploratory data analysis, I wanted to find answers for the following questions:", /*#__PURE__*/_reactDefault.default.createElement("ul", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 151,
+          columnNumber: 25
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 152,
+          columnNumber: 29
+        }
+      }, "When were songs released per genre?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 153,
+          columnNumber: 29
+        }
+      }, "How many songs have been released per genre?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 154,
+          columnNumber: 29
+        }
+      }, "How is a genre described by each of the popularity of its songs?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155,
+          columnNumber: 29
+        }
+      }, "How has popularity changed over time for each genre?")), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 157,
+          columnNumber: 25
+        }
+      }, "First, I performed initial sanity checks to identify important variables, investigate patterns, summarize characteristics, and more. In order to accurately answer the questions above, I had to ensure that the data was complete and contained all of the necessary variables. These initial checks included creating a list of all column names, checking for null values, and looking at the overall shape of the data. Once I had finished these checks, I then moved onto preparing and transforming the data for visualization."), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 165,
+          columnNumber: 25
+        }
+      }, "For my visualizations, I primarily used groupby functions in order to organize my data. This way, it was easier to categorize the data by genre, subgenre, or year, then delve further to investigate trends and patterns. Because the dataset contained thousands of rows and many columns, I also utilized filtering and aggregate functions to reduce the number of data points on display, thereby giving my visualizations more clarity."), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 172,
+          columnNumber: 25
+        }
+      }, "Overall, I was able to gain valuable insight into this dataset after going through this analysis process. Much of the increase in volume of music each year has occurred in the last decade, particularly in the last few years. All genres displayed in the dataset have seen an increase in the number of songs released as time has moved forward. It seems that recent years have seen a tremendous boom in the music industry as more and more songs are being released.")))))
     );
   };
   _s(App, "Jm65JCcgUFoenM4DufkEA80vRVI=", false, function () {
@@ -26635,7 +26713,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","./hooks/useFetch":"5YU3r","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./data/5.json":"7EVcL","./data/6.json":"4ks4A","./data/7.json":"5aVFy","./data/8.json":"RNeIl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./style/style.css":"1uIeg","./data/1.json":"7FKky","./charts/vegaChart":"4EvrK","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl"}],"5YU3r":[function(require,module,exports) {
+},{"react":"3b2NM","./hooks/useFetch":"5YU3r","./charts/2":"29g08","./charts/3":"3pDMm","./charts/4":"29zjb","./data/5.json":"4eP7w","./data/6.json":"6AHmw","./data/7.json":"fsj0x","./data/8.json":"io6JI","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./style/style.css":"1uIeg","./data/1.json":"1sg6m","./charts/vegaChart":"4EvrK","d3-scale":"2UZ4X","d3-array":"7CLUA","d3":"3auhl"}],"5YU3r":[function(require,module,exports) {
 var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42898,7 +42976,7 @@ try {
     }
     drawBarChart(data) {
       const canvasHeight = 400;
-      const canvasWidth = 1050;
+      const canvasWidth = 1100;
       const scale = 20;
       const color = _d.scaleOrdinal([`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`]);
       const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
@@ -42907,12 +42985,12 @@ try {
       }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
       svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
       var keys = ['album rock', 'big room', 'classic rock', 'dance pop', 'electro house', 'electropop', 'gangster rap', 'hard rock', 'hip hop', 'hip pop', 'indie poptimism', 'latin hip hop', 'latin pop', 'neo soul', 'new jack swing', 'permanent wave', 'pop edm', 'post-teen pop', 'progressive electro house', 'reggaeton', 'southern hip hop', 'trap', 'tropical', 'urban contemporary'];
-      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
+      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 220).attr("cy", function (d, i) {
         return 30 + i * 15;
       }).attr("r", 7).style("fill", function (d) {
         return color(d);
       });
-      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
+      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 200).attr("y", function (d, i) {
         return 30 + i * 15;
       }).style("fill", function (d) {
         return color(d);
@@ -42961,7 +43039,7 @@ try {
     }
     drawBarChart(data) {
       const canvasHeight = 400;
-      const canvasWidth = 1050;
+      const canvasWidth = 1100;
       const scale = 20;
       const color = _d.scaleOrdinal([`#383867`, `#383867`, `#383867`, `#383867`, `#584c77`, `#584c77`, `#584c77`, `#584c77`, `#33431e`, `#33431e`, `#33431e`, `#33431e`, `#a36629`, `#a36629`, `#a36629`, `#a36629`, `#92462f`, `#92462f`, `#92462f`, `#92462f`, `#b63e36`, `#b63e36`, `#b63e36`, `#b63e36`]);
       const svgCanvas = _d.select(this.refs.canvas).append("svg").attr("width", canvasWidth).attr("height", canvasHeight).style("border", "1px solid black");
@@ -42970,12 +43048,12 @@ try {
       }).attr("x", (datapoint, iteration) => iteration * 35).attr("y", datapoint => canvasHeight - datapoint / scale);
       svgCanvas.selectAll("text").data(data).enter().append("text").attr("x", (dataPoint, i) => i * 35).attr("y", (dataPoint, i) => canvasHeight - dataPoint / scale - 10).text(dataPoint => dataPoint);
       var keys = ['big room', 'electro house', 'pop edm', 'progressive electro house', 'latin hip hop', 'latin pop', 'reggaeton', 'tropical', 'dance pop', 'electropop', 'indie poptimism', 'post-teen pop', 'hip pop', 'neo soul', 'new jack swing', 'urban contemporary', 'gangster rap', 'hip hop', 'southern hip hop', 'trap', 'album rock', 'classic rock', 'hard rock', 'permanent wave'];
-      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 180).attr("cy", function (d, i) {
+      svgCanvas.selectAll("mydots").data(keys).enter().append("circle").attr("cx", canvasWidth - 220).attr("cy", function (d, i) {
         return 30 + i * 15;
       }).attr("r", 7).style("fill", function (d) {
         return color(d);
       });
-      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 165).attr("y", function (d, i) {
+      svgCanvas.selectAll("mylabels").data(keys).enter().append("text").attr("x", canvasWidth - 200).attr("y", function (d, i) {
         return 30 + i * 15;
       }).style("fill", function (d) {
         return color(d);
@@ -43005,19 +43083,19 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"7EVcL":[function(require,module,exports) {
+},{"react":"3b2NM","d3":"3auhl","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4eP7w":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
 
-},{}],"4ks4A":[function(require,module,exports) {
+},{}],"6AHmw":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/avgPop.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"track_popularity\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
 
-},{}],"5aVFy":[function(require,module,exports) {
+},{}],"fsj0x":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple bar chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/info474-a2/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}}}");
 
-},{}],"RNeIl":[function(require,module,exports) {
+},{}],"io6JI":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"A simple line chart with embedded data.\",\"width\":800,\"data\":{\"url\":\"https://raw.githubusercontent.com/chloet127/react-parcel-starter/main/src/data/genreCount.csv\"},\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"tooltip\":{\"field\":\"num_songs\",\"type\":\"quantitative\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"}},\"transform\":[{\"filter\":{\"field\":\"year\",\"gte\":2010}}]}");
 
-},{}],"1uIeg":[function() {},{}],"7FKky":[function(require,module,exports) {
+},{}],"1uIeg":[function() {},{}],"1sg6m":[function(require,module,exports) {
 module.exports = JSON.parse("{\"$schema\":\"https://vega.github.io/schema/vega-lite/v5.json\",\"description\":\"A vertical box plot showing median, min, and max body mass of penguins.\",\"data\":{\"url\":\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv\"},\"mark\":{\"type\":\"boxplot\",\"extent\":\"min-max\"},\"encoding\":{\"x\":{\"field\":\"playlist_genre\",\"type\":\"nominal\"},\"color\":{\"field\":\"playlist_genre\",\"type\":\"nominal\",\"legend\":null},\"y\":{\"field\":\"track_popularity\",\"type\":\"quantitative\",\"scale\":{\"zero\":false}}}}");
 
 },{}],"4EvrK":[function(require,module,exports) {

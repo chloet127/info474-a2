@@ -10,7 +10,7 @@ class Chart4 extends Component {
 
     drawBarChart(data)  {
         const canvasHeight = 400
-        const canvasWidth = 1050
+        const canvasWidth = 1100
         const scale = 20
         const color = d3.scaleOrdinal([`#383867`, `#383867`,`#383867`,`#383867`,
             `#584c77`, `#584c77`,`#584c77`,`#584c77`,
@@ -52,7 +52,7 @@ class Chart4 extends Component {
         .data(keys)
         .enter()
         .append("circle")
-            .attr("cx", canvasWidth - 180)
+            .attr("cx", canvasWidth - 220)
             .attr("cy", function(d,i){ return 30 + i*15})
             .attr("r", 7)
             .style("fill", function(d){ return color(d)})
@@ -61,7 +61,7 @@ class Chart4 extends Component {
         .data(keys)
         .enter()
         .append("text")
-            .attr("x", canvasWidth - 165)
+            .attr("x", canvasWidth - 200)
             .attr("y", function(d,i){ return 30 + i*15})
             .style("fill", function(d){ return color(d)})
             .text(function(d){ return d})
