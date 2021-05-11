@@ -4,10 +4,10 @@
   "description": "",
   "type": "module",
   "main": "dist/index.html",
-  "homepage": "https://chloet127.github.io/info474-a2/",
+  "homepage": "https://chloet127.github.io/info474-project/",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url https://chloet127.github.io/info474-a2/ && rm -rf docs && mv dist docs",
+    "build": "parcel build index.html --public-url https://chloet127.github.io/info474-project/ && rm -rf docs && mv dist docs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
