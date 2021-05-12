@@ -6,7 +6,7 @@
     {"calculate": "year(datum.track_album_release_date)", "as": "Year"},
     {"filter": {"field": "Year", "gte": 2000}}
   ],
-  "width": 800,
+  "width": 1000,
   "height": 800,
   "layer": [{
     "params": [{
