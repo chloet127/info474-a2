@@ -29,10 +29,7 @@
       "y": {"field": "danceability", "type": "quantitative"},
       "color": {
         "condition": {"param": "Year", "field": "playlist_genre", "type": "nominal"},
-        "value": "grey"
-      },
-      "opacity": {
-        "value": 0.1
+        "value": "#d1d1d1"
       }
     }
   }, {
