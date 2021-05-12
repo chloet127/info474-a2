@@ -13,6 +13,8 @@ import data6 from './data/6.json';
 import data7 from './data/7.json';
 import data8 from './data/8.json';
 
+import a3 from './data/a3.json';
+
 
 const App = () => {
     const [data, loading] = useFetch(
@@ -29,6 +31,12 @@ const App = () => {
 
                     <p>{loading && "loading data!"}</p>
                 </div>
+
+                <div className='flex-child'>
+                    <h3>Danceability vs Energy Over Time (2000-2020)</h3>
+                    <VegaChart data={a3} id={'a3'} />
+                </div>
+
                 <div className='flex-child'>
                     <h3>Number of Songs per Genre Over Time (1957-2020)</h3>
                     <VegaChart data={data7} id={'vis7'}/>
