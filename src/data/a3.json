@@ -23,7 +23,7 @@
         "select": {"type": "interval"}
       }
     ],
-    "mark": "circle",
+    "mark": { "type": "circle", "tooltip": true, "filled": true },
     "encoding": {
       "x": {"field": "energy", "type": "quantitative"},
       "y": {"field": "danceability", "type": "quantitative"},
@@ -34,7 +34,7 @@
     }
   }, {
     "transform": [{"filter": {"param": "Year"}}],
-    "mark": { "type": "circle", "tooltip": true, "filled": true },
+    "mark": "circle",
     "encoding": {
       "x": {"field": "energy", "type": "quantitative"},
       "y": {"field": "danceability", "type": "quantitative"},
