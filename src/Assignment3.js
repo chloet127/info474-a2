@@ -10,8 +10,6 @@ function Assignment3() {
       <div className='flex-child'>
         <h1>Interative Data Visualization</h1>
         <p>Assignment 3, INFO 474 Spring 2021</p>
-
-        {/* <p>{loading && "loading data!"}</p> */}
       </div>
 
       <div className='flex-child'>
@@ -62,12 +60,12 @@ function WriteUp(){
         to further explore the data points by looking at a certain region of the scatterplot.
       </p>
       <p>
-        We split the teamwork into three different roles: 1) team members who created the graphics (Chloe and Phung), 2) a team 
-        member who routed the project to React (Annie), and 3) team members who created the write-up (Amy and Angela). The team 
+        We split the teamwork into three different roles: 1) team members who created the graphic (Chloe and Phung), 2) a team 
+        member who set up the routing using React (Annie), and 3) team members who worked on the write-up (Amy and Angela). The team 
         also met to discuss roles, connect over Messenger, and decide on which dataset to use. The repository that we decided 
         to build off of was initially developed by Chloe. Chloe and Phung spent over 2 hours creating the interactive visualization. 
-        Annie spent around 1-2 hours setting up React Router. Amy and Angela spent about an hour writing, editing, and finalizing 
-        the write-up. The aspect that took the most time was adding interactivity to the static visualizations because we wanted 
+        Annie spent around 2 hours setting up React Router. Amy and Angela spent about an hour writing, editing, and finalizing 
+        the write-up. The aspect that took the most time was creating the interactive visualization because we wanted 
         to implement multiple interactive features, so getting all of the features to work together on the visualization 
         was a challenge. 
       </p>
