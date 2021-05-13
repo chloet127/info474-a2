@@ -17,4 +17,9 @@ html, body {
     margin-bottom: 100px;
     justify-content: center;
 }
+
+/* Navigation Bar Properties */
+.navbar {
+    background-color: #c2c2c2;
+  }
 /*# sourceMappingURL=index.75f2b313.css.map */
