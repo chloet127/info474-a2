@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "repeat": ["energy", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "danceability"],
+    "columns": 3,
+    "transform": [
+        {"calculate": "year(datum.track_album_release_date)", "as": "Year"},
+        {"filter": {"field": "Year", "gte": 2000}}
+    ],
+    "spec": {
+    "data": {"url": "https://raw.githubusercontent.com/chloet127/info474-project/main/src/data/spotify_songs.json"},
+      "mark": "point",
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval",
+            "resolve": "union",
+            "on": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+            "translate": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+            "zoom": "wheel![event.shiftKey]"
+          }
+        },
+        {
+          "name": "grid",
+          "select": {
+            "type": "interval",
+            "resolve": "global",
+            "translate": "[mousedown[!event.shiftKey], window:mouseup] > window:mousemove!",
+            "zoom": "wheel![!event.shiftKey]"
+          },
+          "bind": "scales"
+        },
+        {
+            "name": "Year",
+            "value": [{"Year": 2010}],
+            "select": {"type": "point", "fields": ["Year"]},
+            "bind": {
+              "Year": {"input": "range", "min": 2000, "max": 2020, "step": 1}
+            }
+          },
+          {
+            "name": "name4",
+            "bind": "scales",
+            "select": {"type": "interval"}
+          }
+      ],
+      "transform": [{"filter": {"param": "Year"}}],
+      "encoding": {
+        "x": {
+            "field": {"repeat": "repeat"}, 
+            "type": "quantitative"
+        },
+        "y": {
+          "field": "track_popularity",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "param": "brush",
+            "field": "playlist_genre", 
+            "type": "nominal"
+          },
+          "value": "grey"
+        }
+      }
+    }
+  }

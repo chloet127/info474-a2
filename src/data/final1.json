@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Drag the sliders to highlight points.",
+    "data": {"url": "https://raw.githubusercontent.com/chloet127/info474-project/main/src/data/spotify_songs.json"},
+    "transform": [
+      {"calculate": "year(datum.track_album_release_date)", "as": "Year"},
+      {"filter": {"field": "Year", "gte": 2000}}
+    ],
+    "width": 900,
+    "height": 600,
+     "params": [{
+      "name": "genre",
+      "select": {"type": "point", "fields": ["playlist_genre"]},
+      "bind": {"input": "select", "options": [null, "edm", "latin", "pop", "r&b", "rap", "rock"]}
+    }],
+    "mark": "point",
+    "encoding": {
+      "x": {"timeUnit": {"unit": "yearmonthdate", "utc": true
+  }, "axis": {"format": "%y"}
+  , "field": "track_album_release_date", "type": "temporal", "title": "Year (2000-2020)"},
+      "y": {"field": "danceability", "type": "quantitative"},
+      "color": {
+        "condition": {
+          "param": "genre",
+          "field": "track_popularity", "type": "quantitative"
+        },
+        "value": "#d1d1d1"
+      },
+        "opacity": {
+          "condition": {
+            "param": "genre",
+            "field": "track_popularity", "type": "quantitative"
+          },
+        "value": 0
+        }
+    }
+  }
+  
