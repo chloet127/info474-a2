@@ -16,20 +16,20 @@
     "mark": "point",
     "encoding": {
       "x": {"timeUnit": {"unit": "yearmonthdate", "utc": true
-  }, "axis": {"format": "%y"}
-  , "field": "track_album_release_date", "type": "temporal", "title": "Year (2000-2020)"},
-      "y": {"field": "danceability", "type": "quantitative"},
+  }, "axis": {"format": "%y"}, 
+  "field": "track_album_release_date", "type": "temporal", "title": "Year (2000-2020)"},
+      "y": {"field": "track_popularity", "type": "quantitative", "title": "Track Popularity"},
       "color": {
         "condition": {
           "param": "genre",
-          "field": "track_popularity", "type": "quantitative"
+          "field": "danceability", "type": "quantitative"
         },
         "value": "#d1d1d1"
       },
         "opacity": {
           "condition": {
             "param": "genre",
-            "field": "track_popularity", "type": "quantitative"
+            "field": "danceability", "type": "quantitative"
           },
         "value": 0
         }
