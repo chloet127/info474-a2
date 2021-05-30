@@ -13,7 +13,7 @@ const App = () => {
       <header>
         <NavigationBar />
       </header>
-      
+
       <main>
         <div>
           <Switch>
@@ -24,7 +24,7 @@ const App = () => {
           </Switch>
         </div>
       </main>
-        
+
     </div>
   );
 }
@@ -34,7 +34,7 @@ function NavigationBar() {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/info474-project">
-          INFO 474 
+          INFO 474
         </NavLink>
         <div className="navbar-nav">
           <NavLink className="nav-link" to="/info474-project/assignment2" >Assignment 2</NavLink>
