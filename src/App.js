@@ -4,6 +4,7 @@ import './style/style.css'
 
 import Assignment2 from './Assignment2';
 import Assignment3 from './Assignment3';
+import Final from './Final';
 
 const App = () => {
 
@@ -16,7 +17,8 @@ const App = () => {
       <main>
         <div>
           <Switch>
-            <Route exact path="/info474-project"> <Assignment3 /> </Route>
+            <Route exact path="/info474-project"> <Final /> </Route>
+            <Route path="/info474-project/assignment3"> <Assignment3 /> </Route>
             <Route path="/info474-project/assignment2"> <Assignment2 /> </Route>
             <Redirect to="/info474-project" />
           </Switch>
@@ -36,7 +38,8 @@ function NavigationBar() {
         </NavLink>
         <div className="navbar-nav">
           <NavLink className="nav-link" to="/info474-project/assignment2" >Assignment 2</NavLink>
-          <NavLink className="nav-link" exact to="/info474-project" >Assignment 3</NavLink>
+          <NavLink className="nav-link" to="/info474-project/assignment3" >Assignment 3</NavLink>
+          <NavLink className="nav-link" exact to="/info474-project" >Final Project</NavLink>
         </div>
       </div>
     </nav>

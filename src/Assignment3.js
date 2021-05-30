@@ -2,8 +2,6 @@ import React from 'react';
 
 import VegaChart from './charts/vegaChart';
 import a3 from './data/a3.json';
-import final1 from './data/final1.json';
-import final2 from './data/final2.json';
 
 function Assignment3() {
 
@@ -12,14 +10,6 @@ function Assignment3() {
       <div className='flex-child'>
         <h1>Interative Data Visualization</h1>
         <p>Assignment 3, INFO 474 Spring 2021</p>
-      </div>
-
-      <div className='flex-child'>
-        <VegaChart data={final2} id={'final2'} />
-      </div>
-
-      <div className='flex-child'>
-        <VegaChart data={final1} id={'final1'} />
       </div>
 
       <div className='flex-child'>
