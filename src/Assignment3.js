@@ -28,7 +28,7 @@ function Assignment3() {
 function WriteUp(){
   return(
     <div>
-      <h2>Write-Up</h2>
+      <h2>Written Analysis</h2>
       <p>
         The interactive visualization that we chose to design looks at two main variables, danceability and energy, in the 
         spotify_songs dataset found <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-01-21">here</a>. 

@@ -110,7 +110,7 @@ function Intro(){
 function WriteUp(){
   return(
     <div>
-      <h2>Write-Up</h2>
+      <h2>Written Analysis</h2>
       <p>
 
       </p>
