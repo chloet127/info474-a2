@@ -17,16 +17,30 @@ function Final() {
         <Intro />
       </div>
 
-      <p>[Title] shows how several different features within the dataset affect the track’s popularity (rated from 0-100, greater the number the better). Each data point in the series of scatter plots represents a single song. Each song is color coded by genre (legend on the right). Interactions include the ability to zoom in and out on all the visualizations at once and a year filter which looks at the data for a specific year.</p>
-
       <div className='flex-child'>
+        <h3>Track Popularity vs. Different Features Over Time (2000-2020)</h3>
         <VegaChart data={final2} id={'final2'} />
+        <p></p> 
+        <p>The visualization above shows how several different features within the dataset affect the track’s popularity (rated from 0-100, greater the number the better). Each data point in the series of scatter plots represents a single song. Each song is color coded by genre (legend on the right). Interactions include the ability to zoom in and out on all the visualizations at once and a year filter which looks at the data for a specific year.</p>
+        <h5>Questions to Consider:</h5>
+        <ul>
+          <li>Which feature affects track popularity the most?</li>
+          <li>What combination of features would yield the highest track popularity?</li>
+          <li>How has the relationship between loudness and track popularity changed over time?</li>
+        </ul>
       </div>
 
-      <p>[Title] is a scatter plot that takes into account the Track Popularity, Year, and Danceability variables. Each data point represents a song. Each song is color coded by Danceability (0.0 is least danceable and 1.0 is most danceable). Interactivity includes the ability to select a subset of the data by genre using the dropdown. For clarification, the null option looks at songs of all genres.</p>
 
       <div className='flex-child'>
+        <h3>Track Popularity and Danceability vs. Year Across Genres</h3>
         <VegaChart data={final1} id={'final1'} />
+        <p></p>
+        <p>This visualization is a scatter plot that takes into account the Track Popularity, Year, and Danceability variables. Each data point represents a song. Each song is color coded by Danceability (0.0 is least danceable and 1.0 is most danceable). Interactivity includes the ability to select a subset of the data by genre using the dropdown. For clarification, the null option looks at songs of all genres.</p>
+        <h5>Questions to Consider:</h5>
+        <ul>
+          <li>How does rock compare to latin music in terms of danceability?</li>
+          <li>What do all the genres have in common in terms to track popularity over time?</li>
+        </ul>
       </div>
 
       <div className='flex-child'>

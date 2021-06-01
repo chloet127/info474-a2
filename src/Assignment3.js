@@ -13,7 +13,7 @@ function Assignment3() {
       </div>
 
       <div className='flex-child'>
-        <h3>Danceability vs Energy Over Time (2000-2020)</h3>
+        <h3>Danceability vs. Energy Over Time (2000-2020)</h3>
         <VegaChart data={a3} id={'a3'} />
       </div>
 
