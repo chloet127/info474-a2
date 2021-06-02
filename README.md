@@ -3,6 +3,8 @@
 > Assignment 2: Exploratory Data Analysis
 > 
 > Assignment 3: Interactive Data Visualization
+> 
+> Final Project: Interactive Dashboard
 
 An exploration of the 'spotify_songs' dataset using Python, React, d3, and vega-lite.
 
